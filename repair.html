@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-    <title>CVE List | Yeting Li</title>
+    <title>Vulnerability Repair | Yeting Li</title>
     <link rel="icon" href="logo.png">
     <style type="text/css">/**
  * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
@@ -1598,6 +1598,10 @@ a.sidebar-link.active {
                                              class="nav-link router-link-exact-active router-link-active">
                         CVEs
                     </a></div>
+                    <div class="nav-item"><a href="repair.html" aria-current="page"
+                                             class="nav-link router-link-exact-active router-link-active">
+                        Repair
+                    </a></div>
                     <div class="nav-item"><a href="https://github.com/yetingli" target="_blank"
                                              rel="noopener noreferrer" class="nav-link external">
                         GitHub
@@ -1639,276 +1643,103 @@ a.sidebar-link.active {
 
 
 
-            <div class="theme-default-content content__default"><h1 id="cve-list">CVE List</h1>
+            <div class="theme-default-content content__default"><h1 id="cve-list">Repair List</h1>
                 <div class="table-container-outer">
                     <div class="table-container">
                         <table align="center" border="0.5" cellpadding="10px">
                             <thead>
                                 <tr>
-                                    <th>CVE ID</th>
+                                    <th>ID</th>
                                     <th>Affected Package</th>
                                     <th>Vuln. Type</th>
-                                    <th>PoC</th>
-                                    <th>Published Date</th>
-                                    <th>Credit</th>
+                                    <th>Fixed</th>
+                                    <th>Acknowledgement</th>
                                 </tr>
                             </thead>
 						    <tbody>
+                             <tr>
+                                    <td>1</td>
+                                    <td>Python >=3.6 <=3.10</td>
+                                    <td>ReDOS</td>
+                                    <td><a href="https://github.com/python/cpython/pull/24391">Fixed</a></td>
+                                    <td></td>
+                                </tr>
                                 <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29063"><strong>CVE-2021-29063</strong></a></td>
+                                    <td>2</td>
                                     <td>Mpmath 1.0.0</td>
                                     <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2021-29063/Mpmath.md">PoC</a></td>
-                                    <td>22 Jun, 2021</td>
-                                    <td>Yeting Li</td>
+                                    <td><a href="https://github.com/fredrik-johansson/mpmath/pull/570">Fixed</a></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29061"><strong>CVE-2021-29061</strong></a></td>
+                                    <td>3</td>
                                     <td>Vfsjfilechooser2 <0.2.9</td>
                                     <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2021-29061/Vfsjfilechooser2.md">PoC</a></td>
-                                    <td>22 Jun, 2021</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29060"><strong>CVE-2021-29060</strong></a></td>
-                                    <td>color-string <1.5.5</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2021-29060/Color-String.md">PoC</a></td>
-                                    <td>22 Jun, 2021</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29059"><strong>CVE-2021-29059</strong></a></td>
-                                    <td>is-svg <4.3.1</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2021-29059/IS-SVG.md">PoC</a></td>
-                                    <td>22 Jun, 2021</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23392"><strong>CVE-2021-23392</strong></a></td>
-                                    <td>locutus <2.0.15</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://snyk.io/vuln/SNYK-JS-LOCUTUS-1090597">PoC</a></td>
-                                    <td>06 Jun, 2021</td>
-                                    <td>Yeting Li</td>
+                                    <td><a href="https://github.com/fracpete/vfsjfilechooser2/commit/9c9f2c317f3de5ece60a3ae28c371e9796e3909b">Fixed</a></td>
+                                    <td></td>
                                 </tr>
                                  <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23382"><strong>CVE-2021-23382</strong></a></td>
+                                    <td>4</td>
                                     <td>postcss >=8.0.0 <8.2.13 || <7.0.36</td>
                                     <td>ReDOS</td>
-                                    <td><a href="https://snyk.io/vuln/SNYK-JS-POSTCSS-1255640">PoC</a></td>
-                                    <td>26 Apr, 2021</td>
-                                    <td>Yeting Li</td>
+                                    <td><a href="https://github.com/postcss/postcss/pull/1567">Fixed</a></td>
+                                     <td><a href="https://twitter.com/PostCSS/status/1386659786435989506?s=20">Link</a></td>
                                 </tr>
                                 <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23368"><strong>CVE-2021-23368</strong></a></td>
-                                    <td>postcss >=7.0.0 <7.0.36 || >=8.0.0 <8.2.10</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://snyk.io/vuln/SNYK-JS-POSTCSS-1090595">PoC</a></td>
-                                    <td>28 Apr, 2021</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23364"><strong>CVE-2021-23364</strong></a></td>
+                                    <td>5</td>
                                     <td>browserslist >=4.0.0 <4.16.5</td>
                                     <td>ReDOS</td>
-                                    <td><a href="https://snyk.io/vuln/SNYK-JS-BROWSERSLIST-1090194">PoC</a></td>
-                                    <td>28 Apr, 2021</td>
-                                    <td>Yeting Li</td>
+                                    <td><a href="https://github.com/browserslist/browserslist/pull/593">Fixed</a></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23362"><strong>CVE-2021-23362</strong></a></td>
-                                    <td>hosted-git-info >=3.0.0 <3.0.8 || <2.8.9</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://snyk.io/vuln/SNYK-JS-HOSTEDGITINFO-1088355">PoC</a></td>
-                                    <td>23 Mar, 2021</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23354"><strong>CVE-2021-23354</strong></a></td>
+                                    <td>6</td>
                                     <td>printf <0.6.1</td>
                                     <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2021-23354/CVE-2021-23354.js">PoC</a></td>
-                                    <td>12 Mar, 2021</td>
-                                    <td>Yeting Li</td>
+                                    <td><a href="https://github.com/adaltas/node-printf/pull/32">Fixed</a></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23353"><strong>CVE-2021-23353</strong></a></td>
+                                    <td>7</td>
                                     <td>jspdf <2.3.1</td>
                                     <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2021-23353/jspdf.js">PoC</a></td>
-                                    <td>09 Mar, 2021</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                 <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23346"><strong>CVE-2021-23346</strong></a></td>
-                                    <td>html-parse-stringify <2.0.1</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/tree/main/CVE-2021-23346">PoC</a></td>
-                                    <td>01 Mar, 2021</td>
-                                    <td>Yeting Li</td>
+                                    <td><a href="https://github.com/MrRio/jsPDF/commit/d8bb3b39efcd129994f7a3b01b632164144ec43e">Fixed</a></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23343"><strong>CVE-2021-23343</strong></a></td>
-                                    <td>path-parse <1.0.7</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://snyk.io/vuln/SNYK-JS-PATHPARSE-1077067">PoC</a></td>
-                                    <td>04 May, 2021</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23341"><strong>CVE-2021-23341</strong></a></td>
-                                    <td>prismjs <1.23.0</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/tree/main/CVE-2021-23341">PoC</a></td>
-                                    <td>18 Feb, 2021</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                 <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-27290"><strong>CVE-2021-27290</strong></a></td>
-                                    <td>ssri >=5.2.2 <6.0.2 || >=7.0.0 <8.0.1</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2021-27290/ssri.js">PoC</a></td>
-                                    <td>15 Apr, 2021</td>
-                                    <td>Yeting Li, <a href="https://github.com/b-c-ds">Ben Caller</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21391"><strong>CVE-2021-21391</strong></a></td>
-                                    <td>ckeditor5 <27.0.0</td>
-                                    <td>ReDOS</td>
-                                    <td>---</td>
-                                    <td>07 Apr, 2021</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                 <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21317"><strong>CVE-2021-21317</strong></a></td>
-                                    <td>uap-core <0.11.0</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2021-21317/CVE-2021-21317.js">PoC</a></td>
-                                    <td>03 Feb, 2021</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29651"><strong>CVE-2020-29651</strong></a></td>
-                                    <td>py <1.10.0</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2020-29651/CVE-2020-29651.py">PoC</a></td>
-                                    <td>09 Dec, 2020</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28500"><strong>CVE-2020-28500</strong></a></td>
-                                    <td>lodash <4.17.21</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2020-28500/CVE-2020-28500.js">PoC</a></td>
-                                    <td>15 Feb, 2021</td>
-                                    <td><a href="https://github.com/chedan90">Liyuan Chen</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28496"><strong>CVE-2020-28496</strong></a></td>
+                                    <td>8</td>
                                     <td>three <0.125.0</td>
                                     <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2020-28496/CVE-2020-28496.js">PoC</a></td>
-                                    <td>29 Jan, 2021</td>
-                                    <td>Yeting Li, <a href="https://github.com/chedan90">Liyuan Chen</a></td>
+                                    <td><a href="https://github.com/mrdoob/three.js/pull/21143">Fixed</a></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28493"><strong>CVE-2020-28493</strong></a></td>
-                                    <td>jinja2 <2.11.3</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2020-28493/CVE-2020-28493.py">PoC</a></td>
-                                    <td>01 Feb, 2021</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28469"><strong>CVE-2020-28469</strong></a></td>
-                                    <td>glob-parent <5.1.2</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2020-28469/CVE-2020-28469.js">PoC</a></td>
-                                    <td>12 Jan, 2021</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27511"><strong>CVE-2020-27511</strong></a></td>
-                                    <td>Prototype <1.7.3</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2020-27511/Prototype.md">PoC</a></td>
-                                    <td>22 Jun, 2021</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7793"><strong>CVE-2020-7793</strong></a></td>
-                                    <td>ua-parser-js <0.7.23</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/tree/main/CVE-2020-7793">PoC</a></td>
-                                    <td>13 Dec, 2020</td>
-                                    <td>Yeting Li, <a href="https://github.com/migueldemoura/">Miguel de Moura</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7779"><strong>CVE-2020-7779</strong></a></td>
-                                    <td>djvalidator <strong>ALL</strong> versions</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/tree/main/CVE-2020-7779">PoC</a></td>
-                                    <td>19 Nov, 2020</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7767"><strong>CVE-2020-7767</strong></a></td>
-                                    <td>express-validators <strong>ALL</strong> versions</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2020-7767/CVE-2020-7767.js">PoC</a></td>
-                                    <td>11 Nov, 2020</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7761"><strong>CVE-2020-7761</strong></a></td>
-                                    <td>@absolunet/kafe <3.2.10</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2020-7761/CVE-2020-7761.js">PoC</a></td>
-                                    <td>05 Nov, 2020</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7760"><strong>CVE-2020-7760</strong></a></td>
-                                    <td>codemirror <5.58.2</td>
-                                    <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/tree/main/CVE-2020-7760">PoC</a></td>
-                                    <td>30 Oct, 2020</td>
-                                    <td>Yeting Li</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7755"><strong>CVE-2020-7755</strong></a></td>
+                                    <td>9</td>
                                     <td>dat.gui <strong>ALL</strong> versions</td>
                                     <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2020-7755/CVE-2020-7755.md">PoC</a></td>
-                                    <td>27 Oct, 2020</td>
-                                    <td>Yeting Li</td>
+                                    <td><a href="https://github.com/dataarts/dat.gui/pull/279">Fixed</a></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7754"><strong>CVE-2020-7754</strong></a></td>
-                                    <td>npm-user-validate <1.0.1</td>
+                                    <td>10</td>
+                                    <td>pylint <2.7.0</td>
                                     <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2020-7754/CVE-2020-7754.js">PoC</a></td>
-                                    <td>18 Oct, 2020</td>
-                                    <td>Yeting Li</td>
+                                    <td><a href="https://github.com/Pierre-Sassoulas/pylint/pull/1">Fixed</a></td>
+                                    <td></td>
                                 </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7753"><strong>CVE-2020-7753</strong></a></td>
-                                    <td>trim <0.0.3</td>
+                             <tr>
+                                    <td>11</td>
+                                    <td>nltk <3.6</td>
                                     <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2020-7753/CVE-2020-7753.js">PoC</a></td>
-                                    <td>27 Oct, 2020</td>
-                                    <td><a href="https://github.com/chedan90">Liyuan Chen</a></td>
+                                    <td><a href="https://github.com/nltk/nltk/pull/2597">Fixed</a></td>
+                                    <td><a href="https://github.com/nltk/nltk/blob/6797ee3958fe3fa0192d347b26ea0fc433b8bfc5/ChangeLog">Link</a></td>
                                 </tr>
-                                <tr>
-                                    <td><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7733"><strong>CVE-2020-7733</strong></a></td>
-                                    <td>ua-parser-js <0.7.22</td>
+                            <tr>
+                                    <td>12</td>
+                                    <td>pyreadline <strong>ALL</strong> versions</td>
                                     <td>ReDOS</td>
-                                    <td><a href="https://github.com/yetingli/PoCs/blob/main/CVE-2020-7733/CVE-2020-7733.js">PoC</a></td>
-                                    <td>16 Sep, 2020</td>
-                                    <td>Yeting Li</td>
+                                    <td><a href="https://github.com/pyreadline/pyreadline/pull/67">Fixed</a></td>
+                                    <td></td>
                                 </tr>
 						    </tbody>
 						</table>
@@ -1916,168 +1747,7 @@ a.sidebar-link.active {
                     </div>
 
 
-                <ol>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29063"><font>CVE-2021-29063</font></a>:
-                        A Regular Expression Denial of Service (ReDOS) vulnerability was discovered in <code>Mpmath</code> version <code>v1.0.0</code> when the <code>mpmathify</code> function is called.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29061"><font>CVE-2021-29061</font></a>:
-                        A Regular Expression Denial of Service (ReDOS) vulnerability was discovered in <code>Vfsjfilechooser2</code> version <code>0.2.9</code> and below which occurs when the application attempts to validate crafted <code>URIs</code>.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29060"><font>CVE-2021-29060</font></a>:
-                        A Regular Expression Denial of Service (ReDOS) vulnerability was discovered in <code>Color-String</code> version <code>1.5.5</code> and below which occurs when the application is provided and checks a crafted invalid <code>HWB</code> string.
-                    </li>
-                     <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29059"><font>CVE-2021-29059</font></a>:
-                        A vulnerability was discovered in <code>IS-SVG</code> version <code>4.3.1</code> and below where a Regular Expression Denial of Service (ReDOS) occurs if the application is provided and checks a crafted invalid <code>SVG</code> string.
-                    </li>
-                     <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23392"><font>CVE-2021-23392</font></a>:
-                        The package <code>locutus</code> before <code>2.0.15</code> are vulnerable to Regular Expression Denial of Service (ReDoS) via the <code>gopher_parsedir</code> function.
-                    </li>
-                     <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23343"><font>CVE-2021-23343</font></a>:
-                        All versions of package <code>path-parse</code> are vulnerable to Regular Expression Denial of Service (ReDoS) via <code>splitDeviceRe</code>, <code>splitTailRe</code>, and <code>splitPathRe</code> regular expressions. ReDoS exhibits polynomial worst-case time complexity.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23364"><font>CVE-2021-23364</font></a>:
-                        The package <code>browserslist</code> from <code>4.0.0</code> and before <code>4.16.5</code> are vulnerable to Regular Expression Denial of Service (ReDoS) during parsing of queries.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23382"><font>CVE-2021-23382</font></a>:
-                        The package <code>postcss</code> before <code>8.2.13</code> are vulnerable to Regular Expression Denial of Service (ReDoS) via <code>getAnnotationURL()</code> and <code>loadAnnotation()</code> in <code>lib/previous-map.js</code>. The vulnerable regexes are caused mainly by the sub-pattern <code>\/\*\s*# sourceMappingURL=(.*)</code>.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21391"><font>CVE-2021-21391</font></a>:
-                        Affected versions of several <code>CKEditor 5</code> packages are vulnerable to Regular Expression Denial of Service (ReDoS). It allows to abuse particular regular expressions, which could cause a significant performance drop resulting in a browser tab freeze.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23368"><font>CVE-2021-23368</font></a>:
-                        The package <code>postcss</code> from <code>7.0.0</code> and before <code>8.2.10</code> are vulnerable to Regular Expression Denial of Service (ReDoS) during source map parsing.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23362"><font>CVE-2021-23362</font></a>:
-                        The package <code>hosted-git-info</code> before <code>3.0.8</code> are vulnerable to Regular Expression Denial of Service (ReDoS) via the regular expression <code>shortcutMatch</code> in the <code>fromUrl</code> function in <code>index.js</code>. The affected regular expression exhibits polynomial worst-case time complexity.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-27290"><font>CVE-2021-27290</font></a>:
-                        <code>ssri</code> <code>5.2.2</code>-<code>8.0.0</code>, fixed in <code>8.0.1</code>, processes SRIs using a regular expression which is vulnerable to a denial of service. Malicious SRIs could take an extremely long time to process, leading to denial of service. This issue only affects consumers using the <code>strict</code> option.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23354"><font>CVE-2021-23354</font></a>:
-                        The package <code>printf</code> before <code>0.6.1</code> are vulnerable to Regular Expression Denial of Service (ReDoS) via the regex <code>Formatter.prototype._re</code> in <code>lib/printf.js</code>. The vulnerable regular expression has cubic worst-case time complexity.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23353"><font>CVE-2021-23353</font></a>:
-                        This affects the package <code>jspdf</code> before <code>2.3.1</code>. ReDoS is possible via the <code>addImage</code> function.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23346"><font>CVE-2021-23346</font></a>:
-                        This affects the package <code>html-parse-stringify</code> before <code>2.0.1</code>; all versions of package
-                        <code>html-parse-stringify2</code>. Sending certain input could cause one of the regular
-                        expressions that is used for parsing to backtrack, freezing the process.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23341"><font>CVE-2021-23341</font></a>:
-                        The package <code>prismjs</code> before <code>1.23.0</code> are vulnerable to Regular Expression Denial of
-                        Service (ReDoS) via the <code>prism-asciidoc</code>, <code>prism-rest</code>,
-                        <code>prism-tap</code> and <code>prism-eiffel</code> components.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21317"><font>CVE-2021-21317</font></a>:
-                        <code>uap-core</code> in an open-source npm package which contains the core of BrowserScope's
-                        original user agent string parser. In <code>uap-core</code> before version <code>0.11.0</code>, some regexes
-                        are vulnerable to regular expression denial of service (REDoS) due to overlapping capture
-                        groups. This allows remote attackers to overload a server by setting the User-Agent header in an
-                        HTTP(S) request to maliciously crafted long strings. This is fixed in version <code>0.11.0</code>. Downstream
-                        packages such as <code>uap-python</code>, <code>uap-ruby</code> etc which depend upon <code>uap-core</code>
-                        follow different version schemes.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29651"><font>CVE-2020-29651</font></a>:
-                        A denial of service via regular expression in the <code>py.path.svnwc</code> component of <code>py</code>
-                        (aka <code>python-py</code>) through <code>1.9.0</code> could be used by attackers to cause a compute-time
-                        denial of service attack by supplying malicious input to the blame functionality.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28500"><font>CVE-2020-28500</font></a>:
-                        All versions of package <code>lodash</code>; all versions of package <code>org.fujion.webjars:lodash</code>
-                        are vulnerable to Regular Expression Denial of Service (ReDoS) via the <code>toNumber</code>,
-                        <code>trim</code> and <code>trimEnd</code> functions.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28496"><font>CVE-2020-28496</font></a>:
-                        This affects the package <code>three</code> before <code>0.125.0</code>. This can happen when handling rgb or
-                        hsl colors.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28493"><font>CVE-2020-28493</font></a>:
-                        This affects the package <code>jinja2</code> from <code>0.0.0</code> and before <code>2.11.3</code>. The ReDoS
-                        vulnerability is mainly due to the <code>_punctuation_re regex</code> operator and its use of
-                        multiple wildcards. The last wildcard is the most exploitable as it searches for trailing
-                        punctuation. This issue can be mitigated by Markdown to format user content instead of the
-                        urlize filter, or by implementing request timeouts and limiting process memory.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28469"><font>CVE-2020-28469</font></a>:
-                        Affected versions of the package <code>glob-parent</code> are vulnerable to Regular Expression
-                        Denial of Service (ReDoS). The <code>enclosure</code> regex used to check for strings ending in
-                        enclosure containing path separator.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27511"><font>CVE-2020-27511</font></a>:
-                        An issue was discovered in the <code>stripTags</code> and <code>unescapeHTML</code> components in <code>Prototype</code> <code>1.7.3</code> version <code>1.6</code> and below where an attacker can cause a Regular Expression Denial of Service (ReDOS) through stripping crafted <code>HTML</code> tags.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7793"><font>CVE-2020-7793</font></a>:
-                        The package <code>ua-parser-js</code> before <code>0.7.23</code> are vulnerable to Regular Expression Denial
-                        of Service (ReDoS) in multiple regexes.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7779"><font>CVE-2020-7779</font></a>:
-                        All versions of package <code>djvalidator</code> are vulnerable to Regular Expression Denial of
-                        Service (ReDoS) by sending crafted invalid emails.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7767"><font>CVE-2020-7767</font></a>:
-                        All versions of package <code>express-validators</code> are vulnerable to Regular Expression Denial of
-                        Service (ReDoS) when validating specifically-crafted invalid urls.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7761"><font>CVE-2020-7761</font></a>:
-                        This affects the package <code>@absolunet/kafe</code> before <code>3.2.10</code>. It allows cause a denial of
-                        service when validating crafted invalid emails.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7760"><font>CVE-2020-7760</font></a>:
-                        This affects the package <code>codemirror</code> before <code>5.58.2</code>; the package <code>org.apache.marmotta.webjars:codemirror</code>
-                        before <code>5.58.2</code>.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7755"><font>CVE-2020-7755</font></a>:
-                        All versions of package <code>dat.gui</code> are vulnerable to Regular Expression Denial of
-                        Service (ReDoS) via specifically crafted rgb and rgba values.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7754"><font>CVE-2020-7754</font></a>:
-                        This affects the package <code>npm-user-validate</code> before <code>1.0.1</code>. The regex that validates
-                        user emails took exponentially longer to process long input strings beginning with
-                        <code>@</code> characters.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7753"><font>CVE-2020-7753</font></a>:
-                        All versions of package <code>trim</code> are vulnerable to Regular Expression Denial of Service
-                        (ReDoS) via <code>trim()</code>.
-                    </li>
-                    <li>
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-7733"><font>CVE-2020-7733</font></a>:
-                        The package <code>ua-parser-js</code> before <code>0.7.22</code> are vulnerable to Regular Expression Denial
-                        of Service (ReDoS) via the regex for <code>Redmi Phones</code> and <code>Mi Pad Tablets
-                        UA</code>.
-                    </li>
-                </ol>
+
                 <p>​</p></div>
             <footer class="page-edit"><!---->
                 <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">06/24/2021, 08:59:35 PM</span>
