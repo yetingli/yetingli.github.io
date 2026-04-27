@@ -1,6 +1,7 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-US">
 <head>
+    <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
@@ -1676,8 +1677,8 @@ html {
   scroll-behavior: smooth;
 }
 .home-page .theme-default-content:not(.custom) {
-  max-width: 980px;
-  padding-top: 3.2rem;
+  max-width: 1220px;
+  padding: 3.4rem 1.5rem 0;
 }
 .home-page .theme-default-content:not(.custom) p {
   color: #415365;
@@ -1705,16 +1706,39 @@ html {
   padding-left: 0;
 }
 .home-hero .profile .info .name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.45rem;
   font-size: 2.55rem;
   line-height: 1.08;
   font-weight: 700;
   color: #16202a;
 }
-.chinese-name {
-  margin-top: 0.15rem;
-  font-size: 1.35rem;
-  font-weight: 600;
+.name-divider {
+  color: #8090a1;
+  font-size: 0.48em;
+  font-weight: 500;
+}
+.name-alt {
   color: #3a4a5c;
+  font-size: 0.52em;
+  font-weight: 600;
+}
+.home-hero .bio p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.42rem;
+  margin: 0.75rem 0 0;
+  color: #506274;
+  line-height: 1.6;
+}
+.bio-divider {
+  color: #8a98a8;
+}
+.bio-alt {
+  color: #607184;
 }
 .hero-role {
   margin-top: 0.65rem;
@@ -1722,7 +1746,7 @@ html {
   font-size: 1.02rem;
 }
 .hero-summary {
-  max-width: 700px;
+  max-width: 760px;
   margin: 1rem 0 0;
   color: #3f4f5f;
   line-height: 1.72;
@@ -1770,52 +1794,62 @@ html {
   border-color: #b45309;
   color: #8a4308;
 }
-.metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.85rem;
-  margin-top: 1.6rem;
-}
-.metric {
-  min-height: 92px;
-  padding: 0.85rem;
-  border: 1px solid #e3ebf2;
-  border-radius: 8px;
-  background: #fff;
-}
-.metric strong {
-  display: block;
-  color: #145c74;
-  font-size: 1.7rem;
-  line-height: 1.1;
-}
-.metric span {
-  display: block;
-  margin-top: 0.35rem;
-  color: #506172;
-  line-height: 1.45;
-  font-size: 0.92rem;
-}
-.highlight-strip {
-  display: block;
+.home-hero .contact {
   margin-top: 1rem;
 }
-.highlight-item {
-  display: flex;
-  flex-wrap: wrap;
+.home-hero .contact .email {
+  display: inline-flex;
   align-items: center;
-  gap: 0.35rem 0.85rem;
-  padding: 0.9rem 1rem;
+  padding: 0.38rem 0.7rem;
+  border: 1px solid #d6e2ee;
+  border-radius: 999px;
+  background: #fff;
+  color: #385169;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.hero-aside {
+  display: grid;
+  gap: 0.9rem;
+  align-self: stretch;
+}
+.hero-note,
+.hero-recognition {
+  padding: 1rem 1.05rem;
+  border: 1px solid #e1e9f0;
+  border-radius: 10px;
+}
+.hero-note {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
+}
+.hero-recognition {
   border-left: 3px solid #145c74;
   background: #eef7f8;
-  color: #29495d;
-  line-height: 1.55;
 }
-.highlight-item strong {
-  color: #145c74;
+.hero-note-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.58rem;
+  border: 1px solid #d6e2ee;
+  border-radius: 999px;
+  background: #f6f9fc;
+  color: #29445c;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0;
 }
-.highlight-divider {
-  color: #8ca2ad;
+.hero-note p,
+.hero-recognition-list {
+  margin: 0.75rem 0 0;
+  color: #466070;
+  line-height: 1.65;
+}
+.hero-recognition-list {
+  padding-left: 1.1rem;
+}
+.hero-recognition-list li + li {
+  margin-top: 0.45rem;
 }
 .home-section {
   margin-top: 2.35rem;
@@ -1828,7 +1862,7 @@ html {
   color: #172635;
 }
 .section-lead {
-  max-width: 820px;
+  max-width: 920px;
   color: #4a5c6d;
   line-height: 1.75;
 }
@@ -1956,6 +1990,19 @@ html {
   border-color: #145c74;
   text-decoration: none;
 }
+.publication-section-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+}
+.publication-section-top > div:first-child {
+  flex: 1 1 520px;
+}
+.publication-section-top .publication-actions {
+  margin-top: 0;
+}
 .publication-stats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1982,6 +2029,22 @@ html {
   line-height: 1.45;
   font-size: 0.92rem;
   overflow-wrap: anywhere;
+}
+.publication-kicker {
+  margin: 1.35rem 0 0;
+  color: #29445c;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.publication-highlight-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.95rem 1rem;
+  margin-top: 0.8rem;
+}
+#selected-publications > ul.publication-highlight-list > li {
+  margin: 0;
+  height: 100%;
 }
 #selected-publications > p.year-heading > strong {
   display: inline-flex;
@@ -2091,20 +2154,29 @@ html {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.6rem 1.2rem;
 }
-.cve-highlight {
-  padding: 1rem;
-  border: 1px solid #d9e8e4;
-  border-radius: 8px;
-  background: #f6fbf9;
-}
 @media (max-width: 960px) and (min-width: 761px) {
-  .metrics-grid,
   .publication-stats,
   .focus-grid,
   .advantage-grid,
   .service-groups,
   .award-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 961px) {
+  .home-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.95fr);
+    gap: 1.6rem 2.2rem;
+    align-items: center;
+  }
+  .home-hero .profile {
+    grid-column: 1;
+    margin: 0;
+  }
+  .home-hero .hero-aside {
+    grid-column: 2;
+    align-self: start;
   }
 }
 @media (max-width: 760px) {
@@ -2134,22 +2206,15 @@ html {
   .hero-actions {
     gap: 0.5rem;
   }
-  .highlight-divider {
-    display: none;
-  }
-  .metrics-grid,
   .publication-stats,
-  .highlight-strip,
   .bilingual-grid,
   .focus-grid,
   .advantage-grid,
+  .publication-highlight-list,
   .student-grid,
   .service-groups,
   .award-grid {
     grid-template-columns: 1fr;
-  }
-  .metric {
-    min-height: auto;
   }
   .publication-stat {
     min-height: auto;
@@ -2260,11 +2325,12 @@ html {
                     <div class="image"><img src="profile.png" alt=""></div>
                     <div class="info">
                         <div class="name">
-                            Yeting Li
+                            <span>Yeting Li</span>
+                            <span class="name-divider">|</span>
+                            <span class="name-alt">李页霆</span>
                         </div>
-                        <div class="chinese-name">李页霆</div>
-                        <div class="bio"><p>Associate Professor / Master's Supervisor at IIE, CAS<br>中国科学院信息工程研究所副研究员、硕士生导师</p></div>
-                        <p class="hero-summary">I work on software and system security, with a focus on AI-driven vulnerability discovery, exploit generation, program analysis, and security evaluation.</p>
+                        <div class="bio"><p><span>Associate Professor at IIE, CAS</span><span class="bio-divider">|</span><span class="bio-alt">中国科学院信息工程研究所副研究员</span></p></div>
+                        <p class="hero-summary">I work on software and system security, with a focus on AI-driven vulnerability discovery, exploit generation, and program analysis.</p>
                         <div class="tag-list">
                             <span>Software Security</span>
                             <span>AI for Security</span>
@@ -2275,7 +2341,6 @@ html {
                         <div class="hero-actions">
                             <a href="publication.html" class="primary">Publications</a>
                             <a href="#prospective-students" class="secondary">Join the Group</a>
-                            <a href="cve.html">Selected CVEs</a>
                             <a href="https://people.ucas.edu.cn/~yetingli">UCAS Profile</a>
                             <a href="mailto:liyeting@iie.ac.cn">Email</a>
                         </div>
@@ -2284,17 +2349,17 @@ html {
                             <div title="Contact me" class="email">liyeting (at) iie (dot) ac (dot) cn</div>
                         </div> <!----></div>
                 </div>
-                <div class="metrics-grid">
-                    <div class="metric"><strong data-publication-total>...</strong><span>peer-reviewed papers in security, systems, and software engineering</span></div>
-                    <div class="metric"><strong data-publication-lead>...</strong><span>first-author or corresponding-author publications</span></div>
-                    <div class="metric"><strong>300+</strong><span>CVE-class vulnerabilities discovered and responsibly reported</span></div>
-                    <div class="metric"><strong>Top venues</strong><span>IEEE S&amp;P, USENIX Security, NDSS, EuroSys, ICSE, ASE, ISSTA</span></div>
-                </div>
-                <div class="highlight-strip">
-                    <div class="highlight-item">
-                        <span><strong>Award-recognized research:</strong> ICSE 2024 Distinguished Paper Award; USENIX Security 2025 Distinguished Paper Honorable Mention</span>
-                        <span class="highlight-divider">|</span>
-                        <span><strong>Real-world impact:</strong> 300+ CVE-class vulnerabilities and deployed security-evaluation systems</span>
+                <div class="hero-aside">
+                    <div class="hero-note">
+                        <span class="hero-note-label">Openings / 招生</span>
+                        <p>Recruiting master's students, PhD students, postdoctoral researchers, and research interns interested in AI-driven vulnerability discovery, automated exploit generation, program analysis, fuzzing, and software/system security. 欢迎对智能化漏洞挖掘、自动化漏洞利用、程序分析、模糊测试与软件系统安全感兴趣的同学联系。</p>
+                    </div>
+                    <div class="hero-recognition">
+                        <span class="hero-note-label">Recent Recognition / 近期亮点</span>
+                        <ul class="hero-recognition-list">
+                            <li>ICSE 2024 ACM SIGSOFT Distinguished Paper Award</li>
+                            <li>USENIX Security 2025 Distinguished Paper Honorable Mention</li>
+                        </ul>
                     </div>
                 </div>
                 </section>
@@ -2304,11 +2369,11 @@ html {
                     <div class="bilingual-grid">
                         <div class="info-panel">
                             <h3>English</h3>
-                            <p>Yeting Li is an Associate Professor and master's supervisor at the Institute of Information Engineering, Chinese Academy of Sciences. His research focuses on software and system security, especially intelligent vulnerability discovery and automated exploitation. He has published 40+ papers in top security, systems, and software engineering venues, including IEEE S&amp;P, USENIX Security, NDSS, EuroSys, ICSE, ASE, and ISSTA, with 17 papers as first author or corresponding author. Recent work has been accepted by EuroSys 2026 and NDSS 2026. His work has received the ICSE 2024 ACM SIGSOFT Distinguished Paper Award and a USENIX Security 2025 Distinguished Paper Honorable Mention.</p>
+                            <p>Yeting Li is an Associate Professor at the Institute of Information Engineering, Chinese Academy of Sciences. His research focuses on software and system security, especially intelligent vulnerability discovery and automated exploitation. He has published 40+ papers in top security, systems, and software engineering venues, including IEEE S&amp;P, USENIX Security, NDSS, EuroSys, ICSE, ASE, and ISSTA, with 21 papers as first author or corresponding author. Recent work has been accepted by EuroSys 2026 and NDSS 2026. His work has received the ICSE 2024 ACM SIGSOFT Distinguished Paper Award and a USENIX Security 2025 Distinguished Paper Honorable Mention.</p>
                         </div>
                         <div class="info-panel">
                             <h3>中文</h3>
-                            <p>李页霆，中国科学院信息工程研究所副研究员、硕士生导师，长期从事软件与系统安全研究，主要聚焦智能化漏洞挖掘与自动化利用技术。围绕漏洞检测、利用生成与安全评测等方向，在网络安全、系统与软件工程领域国际顶级会议发表论文40余篇，其中以第一作者或通讯作者发表17篇，近年成果包括EuroSys 2026、NDSS 2026、USENIX Security 2025等。相关研究曾获得ICSE 2024最佳论文奖，并获USENIX Security 2025最佳论文提名。团队累计发现并报告CVE漏洞300余个，相关技术系统已在国家级安全评测与攻防任务中得到应用。</p>
+                            <p>李页霆，中国科学院信息工程研究所副研究员，长期从事软件与系统安全研究，主要聚焦智能化漏洞挖掘与自动化利用技术。围绕漏洞检测、利用生成与安全评测等方向，在网络安全、系统与软件工程领域国际顶级会议发表论文40余篇，其中以第一作者或通讯作者发表21篇，近年成果包括EuroSys 2026、NDSS 2026、USENIX Security 2025等。相关研究曾获得ICSE 2024 ACM SIGSOFT Distinguished Paper Award，并获USENIX Security 2025 Distinguished Paper Honorable Mention。团队累计发现并报告CVE漏洞300余个，相关技术系统已在国家级安全评测与攻防任务中得到应用。</p>
                         </div>
                     </div>
                 </section>
@@ -2372,291 +2437,65 @@ html {
                     </div>
                     <p class="recruit-note">The group values curiosity, engineering taste, careful experimentation, and the ability to turn security ideas into working systems.</p>
                 </section>
-                                <section class="home-section publications-section" id="selected-publications">
-                <h2>Publications / 发表论文</h2>
-                <p class="section-lead">Peer-reviewed publications in software and system security, vulnerability discovery, fuzzing, program analysis, ReDoS defense, and software engineering. 论文列表按时间倒序排列。</p>
+                <section class="home-section publications-section" id="selected-publications">
+                <div class="publication-section-top">
+                    <div>
+                        <h2>Publications / 发表论文</h2>
+                        <p class="section-lead">Peer-reviewed publications in software and system security, vulnerability discovery, fuzzing, program analysis, ReDoS defense, and software engineering. 以下展示近年的代表性成果。</p>
+                    </div>
                     <div class="publication-actions">
-                        <a href="https://scholar.google.com/citations?user=ESEQOMMAAAAJ" class="primary">Google Scholar</a>
+                        <a href="publication.html" class="primary">View Full Publications</a>
+                        <a href="https://scholar.google.com/citations?user=ESEQOMMAAAAJ">Google Scholar</a>
                         <a href="https://dblp.uni-trier.de/pid/185/7953.html">DBLP</a>
                     </div>
-                    <div class="publication-stats">
-                        <div class="publication-stat"><strong data-publication-total>...</strong><span>peer-reviewed papers listed in reverse chronological order</span></div>
-                        <div class="publication-stat"><strong data-publication-lead>...</strong><span>first-author or corresponding-author publications</span></div>
-                        <div class="publication-stat"><strong>Top venues</strong><span>IEEE S&amp;P, USENIX Security, NDSS, EuroSys, ICSE, ASE, ISSTA</span></div>
-                        <div class="publication-stat"><strong>Awards</strong><span>ICSE 2024 Distinguished Paper; USENIX Security 2025 Honorable Mention</span></div>
-                    </div>
-<div class="publication-filters" aria-label="Publication filters">
-                        <button class="publication-filter" type="button" data-filter="all" aria-pressed="true">All</button>
-                        <button class="publication-filter" type="button" data-filter="ccf-a" aria-pressed="false">CCF-A</button>
-                        <button class="publication-filter" type="button" data-filter="ccf-b" aria-pressed="false">CCF-B</button>
-                        <button class="publication-filter" type="button" data-filter="ccf-c" aria-pressed="false">CCF-C</button>
-                        <button class="publication-filter" type="button" data-filter="top-security" aria-pressed="false">Top Security</button>
-                        <button class="publication-filter" type="button" data-filter="lead" aria-pressed="false">First / Corresponding</button>
-                    </div>
-                    <div class="publication-filter-count" aria-live="polite">Showing publications</div>
-                    <nav class="publication-year-nav" aria-label="Publication years">
-                        <a href="#year-2026">2026</a>
-                        <a href="#year-2025">2025</a>
-                        <a href="#year-2024">2024</a>
-                        <a href="#year-2023">2023</a>
-                        <a href="#year-2022">2022</a>
-                        <a href="#year-2021">2021</a>
-                        <a href="#year-2020">2020</a>
-                        <a href="#year-2019">2019</a>
-                        <a href="#year-2018">2018</a>
-                        <a href="#year-2016">2016</a>
-                    </nav>
-                                  <p id="year-2026" class="year-heading"><strong>2026</strong></p>
-                <ul>
-<li><strong>Themis: Bridging Documentation and Code to Uncover Access Control Vulnerabilities in GitLab</strong>
-    <br>Yujie Sun, Huina Chao, <span class="author-me">Yeting Li*</span>, Xinyi Wang, Yiming Liu, Jialun Cao, Qin Mai, Hengyu Yang, Feng Li, Wei Huo, Baoxu Liu:
-    2026 IEEE International Conference on Acoustics, Speech and Signal Processing (<font>ICASSP 2026, CCF-B</font>)
-    <br><span>LLM-assisted consistency checking between documentation-derived permissions and code-level enforcement for GitLab access control vulnerabilities.</span>
-</li>
-
-<li><strong>LifeFuzz: Lifecycle-Guided Fuzzing for Windows Driver Cross-Handler Vulnerabilities</strong>
-    <br>Chendong Yu, Yuekang Li, Yang Xiao, Jie Lu, <span class="author-me">Yeting Li</span>, Defang Bo, Wei Huo:
-    The 21st ACM European Conference on Computer Systems (<font>EuroSys 2026, CCF-A</font>)
-    <br><span>Lifecycle-guided Windows driver fuzzing for cross-handler vulnerabilities.</span>
-</li>
-
-<li><strong>User-Space Dependency-Aware Rehosting for Linux-Based Firmware Binaries</strong>
-    <br>Chuan Qin, Cen Zhang, Yaowen Zheng, Puzhuo Liu, Jian Zhang, <span class="author-me">Yeting Li</span>, Weidong Zhang, Yang Liu, Limin Sun:
-    The 33rd Network and Distributed System Security Symposium (<font>NDSS 2026, CCF-A</font>)
-    <br><span>Dependency-aware firmware rehosting for scalable dynamic analysis.</span>
-</li>
-
-<li><strong>Through the Authentication Maze: Detecting Authentication Bypass Vulnerabilities in Firmware Binaries</strong>
-    <br>Nanyu Zhong, Yuekang Li, Yanyan Zou, Jiaxu Zhao, Jinwei Dong, Yang Xiao, Bingwei Peng, <span class="author-me">Yeting Li</span>, Wei Wang, Wei Huo:
-    The 33rd Network and Distributed System Security Symposium (<font>NDSS 2026, CCF-A</font>)
-    <br><span>Dynamic firmware analysis for authentication bypass vulnerabilities.</span>
-</li>
-              </ul>
-
-                                  <p id="year-2025" class="year-heading"><strong>2025</strong></p>
-                <ul>
-<li><strong>VULCANBOOST: Boosting ReDoS Fixes through Symbolic Representation and Feature Normalization</strong>
-    <br><span class="author-me">Yeting Li</span>, Yecheng Sun, Zhiwu Xu, Haiming Chen, Xinyi Wang, Hengyu Yang, Huina Chao, Cen Zhang, Yang Xiao, Yanyan Zou, Feng Li, Wei Huo:
-    The 34th USENIX Security Symposium (<font>USENIX Security 2025, CCF-A</font>) <b style="color:red">🏆 Distinguished Paper Honorable Mention, 6% of accepted papers</b>
-    <br><span>Highlighted work on ReDoS repair through symbolic representation and feature normalization.</span>
-</li>
-
-<li><strong>ZIPPER: Static Taint Analysis for PHP Applications with Precision and Efficiency</strong>
-    <br>Xinyi Wang, <span class="author-me">Yeting Li*</span>, Jie Lu, Shizhe Cui, Chenghang Shi, Qin Mai, Yunpei Zhang, Yang Xiao, Feng Li, Wei Huo:
-    The 34th USENIX Security Symposium (<font>USENIX Security 2025, CCF-A</font>)
-    <br><span>Precise and efficient static taint analysis for PHP web applications.</span>
-</li>
-
-<li><strong>From Constraints to Cracks: Constraint Semantic Inconsistencies as Vulnerability Beacons for Embedded Systems</strong>
-    <br>Jiaxu Zhao, Yuekang Li, Yanyan Zou, Yang Xiao, Naijia Jiang, <span class="author-me">Yeting Li</span>, Nanyu Zhong, Bingwei Peng, Kunpeng Jian, Wei Huo:
-    The 34th USENIX Security Symposium (<font>USENIX Security 2025, CCF-A</font>)
-    <br><span>Using constraint semantic inconsistencies as vulnerability signals in embedded systems.</span>
-</li>
-
-<li><strong>CodeCleaner: Elevating Standards with A Robust Data Contamination Mitigation Toolkit</strong>
-    <br>Jialun Cao, Songqiang Chen, Wuqi Zhang, Hau Ching Lo, <span class="author-me">Yeting Li*</span>, Shing-Chi Cheung:
-    The 16th Asia-Pacific Symposium on Internetware (<font>Internetware 2025, CCF-C</font>)
-    <br><span>Toolkit support for mitigating benchmark data contamination in LLM-based code evaluation.</span>
-</li>
-
-<li><strong>A Large Scale Study of AI-based Binary Function Similarity Detection Techniques for Security Researchers and Practitioners</strong>
-    <br>Jingyi Shi, Yufeng Chen, Yang Xiao, Yuekang Li, Zhengzi Xu, Sihao Qiu, Chi Zhang, Keyu Qi, <span class="author-me">Yeting Li</span>, Xingchu Chen, Yanyan Zou, Yang Liu, Wei Huo:
-    The 40th IEEE/ACM International Conference on Automated Software Engineering (<font>ASE 2025, CCF-A</font>)
-    <br><span>Large-scale empirical study of AI-based binary function similarity detection for security practice.</span>
-</li>
-
-<li><strong>Understanding Resource Injection Vulnerabilities in Kubernetes Ecosystems</strong>
-    <br>Defang Bo, Jie Lu, Feng Li, Jingting Chen, Jinchen Wang, Chendong Yu, <span class="author-me">Yeting Li</span>, Wei Huo:
-    The 40th IEEE/ACM International Conference on Automated Software Engineering (<font>ASE 2025, CCF-A</font>)
-    <br><span>Security analysis of resource injection vulnerabilities in Kubernetes ecosystems.</span>
-</li>
-
-<li><strong>Vulnerability-Affected Versions Identification: How Far Are We?</strong>
-    <br>Xingchu Chen, Chengwei Liu, Jialun Cao, Yang Xiao, Xinyue Cai, <span class="author-me">Yeting Li</span>, Jingyi Shi, Tianqi Sun, Haiming Chen, Wei Huo:
-    The 40th IEEE/ACM International Conference on Automated Software Engineering (<font>ASE 2025, CCF-A</font>)
-    <br><span>Measurement of vulnerability-affected version identification and its practical limitations.</span>
-</li>
-
-<li><strong>A Survey of Protocol Fuzzing</strong>
-    <br>Xiaohan Zhang, Cen Zhang, Xinghua Li, Zhengjie Du, Bing Mao, Yuekang Li, Yaowen Zheng, <span class="author-me">Yeting Li</span>, Li Pan, Yang Liu, Robert Deng:
-    ACM Computing Surveys (CSUR), 57(2): 35:1-35:36, 2025
-    <br><span>Comprehensive survey of protocol fuzzing techniques, challenges, and future directions.</span>
-</li>
-              </ul>
-
-
-
-                <p id="year-2024" class="year-heading"><strong>2024</strong></p>
-                <ul>
-                <li><strong>Fuzzing for Stateful Protocol Implementations: Are We There Yet?</strong>
-                    <br>Kunpeng Jian, Yanyan Zou, <span class="author-me">Yeting Li*</span>,
-                         Jialun Cao, Menghao Li, Jian Sun, Jingyi Shi, Wei Huo: The 18th Theoretical Aspects of Software Engineering Conference (<font>TASE 2024, CCF-C</font>), 29 July - 1 August, 2024, Guiyang, China
-                         <br><span>Study and benchmark of fuzzing techniques for stateful protocol implementations.</span>
-           </li>
-                    <li><strong>How Effective Are They? Exploring Large Language Model Based Fuzz Driver Generation</strong>
-                        <br>Cen Zhang, Yaowen Zheng, Mingqiang Bai, <span class="author-me">Yeting Li</span>,
-                         Wei Ma, Xiaofei Xie, Yuekang Li, Limin Sun, Yang Liu: The 33rd ACM SIGSOFT International Symposium on Software Testing and Analysis (<font>ISSTA 2024, CCF-A</font>), 16 - 20 September, 2024, Vienna, Austria
-                         <br><span>Evaluation of large language model based fuzz driver generation.</span>
-
-           </li>
-
-           <li><strong>Semantic-Enhanced Static Vulnerability Detection in Baseband
-            Firmware</strong>
-            <br>Yiming Liu, Cen Zhang, Feng Li, <span class="author-me">Yeting Li</span>, Jianhua Zhou, Jian Wang, Lanlan Zhan, Yang Liu, Wei Huo: The 46th International Conference on Software Engineering (<font  >ICSE 2024, CCF-A</font>),  14 - 20 April 2024, Lisbon, Portugal <b style="color:red">🏆ACM SIGSOFT Distinguished Paper Award</b>
-            <br><span>Semantic-enhanced static vulnerability detection for baseband firmware.</span>
-        </li>
-
-        <li><strong>Leveraging Semantic Relations in Code and Data to Enhance Taint Analysis of Embedded Systems</strong>
-          <br>Jiaxu Zhao, Yuekang Li, Yanyan Zou, Zhaohui Liang, Yang Xiao, <span class="author-me">Yeting Li</span>, Bingwei Peng, Nanyu Zhong, Xinyi Wang, Wei Wang, Wei Huo: The 33rd USENIX Security Symposium (<font  >USENIX Security 2024, CCF-A</font>),  14 - 16 August 2024, Philadelphia, PA, USA
-          <br><span>Enhancing embedded-system taint analysis by modeling semantic relations in code and data.</span>
-        </li>
-
-        <li><strong>File Hijacking Vulnerability: The Elephant in the Room</strong>
-                  <br>Chendong Yu, Yang Xiao, Jie Lu, Yuekang Li, <span class="author-me">Yeting Li</span>, Lian Li, Yifan Dong, Jian Wang, Jingyi Shi, Defang Bo, Wei Huo: The 31st Annual Network and Distributed System Security Symposium (<font  >NDSS 2024, CCF-A</font>), 26 Feb - 1 March 2024, San Diego, California
-                  <br><span>Systematic study of file hijacking vulnerabilities and real-world security risks.</span>
-              </li>
-              </ul>
-
-                <p id="year-2023" class="year-heading"><strong>2023</strong></p>
-                <ul>
-                  <li><strong>Aster: Automatic Speech Recognition System Accessibility Testing for Stutterers</strong>
-                    <br>Yi Liu, Yuekang Li, Gelei Deng, Felix Juefei-Xu, Yao Du, Cen Zhang, Chengwei Liu, <span class="author-me">Yeting Li</span>, Lei Ma, Yang Liu:
-                    The 38th IEEE/ACM International Conference on Automated Software Engineering (<font  >ASE 2023, CCF-A</font>), 11 - 15 Sep 2023, Kirchberg, Luxembourg
-                    <br><span>Accessibility testing framework for speech recognition systems used by stutterers.</span>
-                </li>
-
-                <li><strong>ACETest: Automated Constraint Extraction for Testing Deep Learning Operators</strong>
-                  <br>Jingyi Shi, Yang Xiao, Yuekang Li, <span class="author-me">Yeting Li</span>, Dongsong Yu, Chendong Yu, Hui Su, Yufeng Chen, Wei Huo: The 32nd ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA 2023, CCF-A), 17 - 21 July 2023, Washington, United States
-                  <br><span>Automated constraint extraction for testing deep learning operators.</span>
-              </li>
-
-                <li><strong>Effective ReDoS Detection by Principled Vulnerability Modeling and Exploit Generation</strong>
-                  <br>Xinyi Wang, Cen Zhang, <span class="author-me">Yeting Li*</span>, Zhiwu Xu, Shuailin Huang, Yi Liu, Yican Yao, Yang Xiao, Yanyan Zou, Yang Liu, Wei Huo: The 44th IEEE Symposium on
-                  Security and Privacy (S&P 2023, CCF-A), 22 - 25 May 2023, San Francisco, CA
-                  <br><span>Principled ReDoS vulnerability modeling and exploit generation.</span>
-              </li>
-              </ul>
-                <p id="year-2022" class="year-heading"><strong>2022</strong></p>
-                <ul>
-                  <li><p><em><strong>RegexScalpel: Regular Expression Denial of Service (ReDoS)
-                    Defense by Localize-and-Fix</strong></em><br><span class="author-me">Yeting Li</span>, Yecheng Sun, Zhiwu Xu,
-                    Jialun Cao, Yuekang Li, Rongchen Li, Haiming Chen, Shing-Chi Cheung, Yang Liu, Yang Xiao:
-                    The 31st USENIX Security Symposium (USENIX Security 2022, CCF-A), 10 - 12 Aug 2022, BOSTON, MA, USA
-                    <br><span>Localize-and-fix defense for ReDoS vulnerabilities in regular expressions.</span>
-                  </p>
-                  </li>
-                  <li><p><em><strong>Learning Disjunctive Multiplicity Expressions and Disjunctive Generalize Multiplicity Expressions from Both Positive and Negative Examples</strong></em><br><span class="author-me">Yeting Li</span>, Haiming Chen, Zixuan Chen:
-                    The Computer Journal 2022, CCF-B
-                    <br><span>Learning XML multiplicity expressions from positive and negative examples.</span>
-                  </p>
-                  </li>
-                  <li><p><em><strong>SemMT: A Semantic-based Testing Approach for Machine Translation Systems</strong></em><br>Jialun
-                    Cao, Meiziniu Li, <span class="author-me">Yeting Li</span>, Ming Wen, Shing-Chi Cheung, Haiming Chen:
-                    ACM Transactions on Software Engineering and Methodology (TOSEM 2022, CCF-A)
-                    <br><span>Semantic-based testing approach for machine translation systems.</span></p>
-                  </li>
-                </ul>
-
-                <p id="year-2021" class="year-heading"><strong>2021</strong></p>
-                <ul>
-                    <li><p><em><strong>ReDoSHunter: A Combined Static and Dynamic Approach for Regular Expression DoS Detection</strong></em><br><span class="author-me">Yeting Li</span>, Zixuan Chen, Jialun Cao,
-                        Zhiwu Xu, Qiancheng Peng, Haiming Chen, Liyuan Chen, Shing-Chi Cheung: The 30th USENIX Security Symposium (USENIX Security 2021, CCF-A), 11 - 13 Aug 2021, Virtual
-                        <br><span>Combined static and dynamic detection for regular expression denial-of-service vulnerabilities.</span></p></li>
-                    <li><p><em><strong>TransRegex: Multi-modal Regular Expression Synthesis by
-                        Generate-and-Repair</strong></em><br><span class="author-me">Yeting Li</span>, Shuaimin Li, Zhiwu Xu,
-                        Jialun Cao, Zixuan Chen, Yun Hu, Haiming Chen, Shing-Chi Cheung: The 43rd International
-                        Conference on Software Engineering (ICSE 2021, CCF-A), 25 - 28 May 2021, Virtual (originally in Madrid,
-                        Spain)
-                        <br><span>Multi-modal regular expression synthesis through generate-and-repair.</span></p></li>
-                </ul>
-                <p id="year-2020" class="year-heading"><strong>2020</strong></p>
-                <ul>
-                    <li><p><em><strong>FlashRegex: Deducing Anti-ReDoS Regexes from Examples</strong></em>
-                        <br><span class="author-me">Yeting Li</span>, Zhiwu Xu, Jialun Cao, Haiming Chen, Tingjian Ge,
-                        Shing-Chi Cheung, Haoren Zhao: The 35th IEEE/ACM International Conference on Automated Software
-                        Engineering (ASE 2020, CCF-A), 21 - 25 Sep 2020, Melbourne, Australia
-                        <br><span>Example-guided inference of anti-ReDoS regular expressions.</span></p></li>
-                    <li><p><em><strong>Inferring Restricted Regular Expressions with Interleaving from Positive and
-                        Negative Samples</strong></em> <br><span class="author-me">Yeting Li</span>, Haiming Chen, Lingqi
-                        Zhang, Bo Huang, Jianzhao Zhang: The 24th Pacific-Asia Conference on Knowledge Discovery and
-                        Data Mining (PAKDD 2020, CORE-A), 11 - 14 May 2020, Singapore
-                        <br><span>Learning restricted regular expressions with interleaving from labeled examples.</span></p></li>
-                    <li><p><em><strong>FlashSchema: Achieving High Quality XML Schemas with Powerful Inference
-                        Algorithms and Large-scale Schema Data</strong></em> <br><span class="author-me">Yeting Li</span>,
-                        Jialun Cao, Haiming Chen, Tingjian Ge, Zhiwu Xu, Qiancheng Peng: The 36th IEEE International
-                        Conference on Data Engineering (ICDE 2020, CCF-A), 20 - 24 Apr 2020, Dallas, Texas
-                        <br><span>High-quality XML schema inference using powerful algorithms and large-scale schema data.</span></p></li>
-                </ul>
-                <p id="year-2019" class="year-heading"><strong>2019</strong></p>
-                <ul>
-                    <li><p><em><strong>Learning k-Occurrence Regular Expressions from Positive and Negative
-                        Samples</strong></em> <br><span class="author-me">Yeting Li</span>, Xiaoying Mou, Haiming Chen: The
-                        38th International Conference on Conceptual Modeling (ER 2019, CORE-A), 4 - 7 Nov 2019, Salvador, Bahia,
-                        Brazil
-                        <br><span>Learning k-occurrence regular expressions from positive and negative samples.</span></p></li>
-                    <li><p><em><strong>Context-free Grammars for Deterministic Regular Expressions with
-                        Interleaving</strong></em> <br>Xiaoying Mou, Haiming Chen, <span class="author-me">Yeting Li</span>:
-                        The 16th International Colloquium on Theoretical Aspects of Computing (ICTAC 2019, CCF-C), Oct 31 - Nov
-                        4, 2019, Hammamet, Tunisia
-                        <br><span>Formal grammar characterization for deterministic regular expressions with interleaving.</span></p></li>
-                    <li><p><em><strong>An Effective Algorithm for Learning Single Occurrence Regular Expressions with
-                        Interleaving</strong></em> <br><span class="author-me">Yeting Li</span>, Haiming Chen, Xiaolan Zhang,
-                        Lingqi Zhang: The 23rd International Database Engineering &amp; Applications Symposium (IDEAS
-                        2019, CORE-B), 10 - 12 Jun 2019, Athens, Greece
-                        <br><span>Algorithmic learning of single-occurrence regular expressions with interleaving.</span></p></li>
-                    <li><p><em><strong>Learning k-Occurrence Regular Expressions with Interleaving</strong></em> <br><span class="author-me">Yeting Li</span>, Xiaolan Zhang, Jialun Cao, Haiming Chen, Chong Gao: The 24th International
-                        Conference on Database Systems for Advanced Applications (DASFAA 2019, CCF-B), 22 - 25 Apr 2019, Chiang
-                        Mai, Thailand
-                        <br><span>Learning expressive XML-schema regular expression classes with interleaving.</span></p></li>
-                    <li><p><em><strong>Learning DMEs from Positive and Negative Examples</strong></em> <br><span class="author-me">Yeting Li</span>, Chunmei Dong, Xinyu Chu, Haiming Chen: The 24th International Conference on
-                        Database Systems for Advanced Applications (DASFAA 2019, CCF-B), 22 - 25 Apr 2019, Chiang Mai, Thailand
-                        <br><span>Learning disjunctive multiplicity expressions from positive and negative samples.</span>
-                    </p></li>
-                    <li><p><em><strong>A Large-Scale Repository of Deterministic Regular Expression Patterns and Its
-                        Applications</strong></em> <br>Haiming Chen, <span class="author-me">Yeting Li</span>, Chunmei Dong,
-                        Xinyu Chu, Xiaoying Mou, Weidong Min: The 23rd Pacific-Asia Conference on Knowledge Discovery
-                        and Data Mining (PAKDD 2019, CORE-A), 14 - 17 Apr 2019, Macao, China
-                        <br><span>Large-scale repository of deterministic regular expression patterns and applications.</span></p></li>
-                    <li><p><em><strong>Learning Restricted Regular Expressions with Interleaving</strong></em> <br>Chunmei
-                        Dong, <span class="author-me">Yeting Li</span>, Haiming Chen: The 45th International Conference on
-                        Current Trends in Theory and Practice of Computer Science (SOFSEM 2019, CORE-B), SRF, 27 - 30 Jan 2019,
-                        Nový Smokovec, Slovakia
-                        <br><span>Learning restricted regular expressions with interleaving for structured data.</span></p></li>
-                </ul>
-                <p id="year-2018" class="year-heading"><strong>2018</strong></p>
-                <ul>
-                    <li><p><em><strong>Learning Concise Relax NG Schemas Supporting Interleaving from XML
-                        Documents</strong></em> <br><span class="author-me">Yeting Li</span>, Xiaoying Mou, Haiming Chen: The
-                        14th Advanced Data Mining and Applications (ADMA 2018, CORE-B), 16 - 18 Nov 2018, Nanjing, China
-                        <br><span>Concise Relax NG schema inference supporting interleaving.</span></p>
+                </div>
+                <div class="publication-stats">
+                    <div class="publication-stat"><strong data-publication-total>41</strong><span>peer-reviewed papers listed in reverse chronological order</span></div>
+                    <div class="publication-stat"><strong data-publication-lead>21</strong><span>first-author or corresponding-author publications</span></div>
+                    <div class="publication-stat"><strong>Top venues</strong><span>IEEE S&amp;P, USENIX Security, NDSS, EuroSys, ICSE, ASE, ISSTA</span></div>
+                    <div class="publication-stat"><strong>Awards</strong><span>ICSE 2024 Distinguished Paper; USENIX Security 2025 Honorable Mention</span></div>
+                </div>
+                <p class="publication-kicker">Recent Highlights / 近期亮点</p>
+                <ul class="publication-highlight-list">
+                    <li><strong>Themis: Bridging Documentation and Code to Uncover Access Control Vulnerabilities in GitLab</strong>
+                        <br>Yujie Sun, Huina Chao, <span class="author-me">Yeting Li*</span>, Xinyi Wang, Yiming Liu, Jialun Cao, Qin Mai, Hengyu Yang, Feng Li, Wei Huo, Baoxu Liu:
+                        2026 IEEE International Conference on Acoustics, Speech and Signal Processing (<font>ICASSP 2026, CCF-B</font>)
+                        <br><span>LLM-assisted consistency checking between documentation-derived permissions and code-level enforcement for GitLab access control vulnerabilities.</span>
                     </li>
-                    <li><p><em><strong>Learning Restricted Regular Expressions with Interleaving from XML Data</strong></em>
-                        <br><span class="author-me">Yeting Li</span>, Xiaolan Zhang, Han Xu, Xiaoying Mou, Haiming Chen: The
-                        37th International Conference on Conceptual Modeling (ER 2018, CORE-A), 22 - 25 Oct 2018, Xi’an, China
-                        <br><span>Inference of restricted regular expression models from XML data.</span>
-                    </p></li>
-                    <li><p><em><strong>Inferring Regular Expressions with Interleaving from XML Data</strong></em> <br>Xiaolan
-                        Zhang, <span class="author-me">Yeting Li</span>, Fei Tian, Fanlin Cui, Chunmei Dong, Haiming Chen: The
-                        2nd Asia Pacific Web (APWeb) and Web-Age Information Management (WAIM) Joint Conference on Web
-                        and Big Data (APWeb-WAIM 2018, CCF-C), 23 - 25 Jul 2018, Macao, China
-                        <br><span>XML-driven inference of regular expressions with interleaving.</span></p></li>
-                    <li><p><em><strong>Practical Study of Deterministic Regular Expressions from Large-scale XML and
-                        Schema Data</strong></em> <br> <span class="author-me">Yeting Li</span>, Xinyu Chu, Xiaoying Mou,
-                        Chunmei Dong, Haiming Chen: The 22nd International Database Engineering &amp; Applications
-                        Symposium (IDEAS 2018, CORE-B), 18 - 20 Jun 2018, Villa San Giovanni, Italy
-                        <br><span>Empirical study of deterministic regular expressions in large XML and schema corpora.</span></p></li>
-                    <li><p><em><strong>Inference of a Concise Regular Expression Considering Interleaving from XML
-                        Documents</strong></em> <br>Xiaolan Zhang, <span class="author-me">Yeting Li</span>, Fanlin Cui,
-                        Chunmei Dong, Haiming Chen: The 22nd Pacific-Asia Conference on Knowledge Discovery and Data
-                        Mining (PAKDD 2018, CORE-A), 3 - 6 Jun 2018, Melbourne, Australia
-                        <br><span>Inference of concise regular expressions with interleaving from XML documents.</span></p></li>
-                </ul>
-                <p id="year-2016" class="year-heading"><strong>2016</strong></p>
-                <ul>
-                    <li><em><strong>Practical Study of Subclasses of Regular Expressions in DTD and XML Schema</strong></em>
-                        <br><span class="author-me">Yeting Li</span>, Xiaolan Zhang, Feifei Peng, Haiming Chen:
-                        The 18th Asia Pacific Web Conference (APWeb 2016, CCF-C), 23 - 25 Sep, Suzhou, China
-                        <br><span>Empirical study of regular-expression subclasses in DTD and XML Schema.</span>
+                    <li><strong>LifeFuzz: Lifecycle-Guided Fuzzing for Windows Driver Cross-Handler Vulnerabilities</strong>
+                        <br>Chendong Yu, Yuekang Li, Yang Xiao, Jie Lu, <span class="author-me">Yeting Li</span>, Defang Bo, Wei Huo:
+                        The 21st ACM European Conference on Computer Systems (<font>EuroSys 2026, CCF-A</font>)
+                        <br><span>Lifecycle-guided Windows driver fuzzing for cross-handler vulnerabilities.</span>
+                    </li>
+                    <li><strong>User-Space Dependency-Aware Rehosting for Linux-Based Firmware Binaries</strong>
+                        <br>Chuan Qin, Cen Zhang, Yaowen Zheng, Puzhuo Liu, Jian Zhang, <span class="author-me">Yeting Li</span>, Weidong Zhang, Yang Liu, Limin Sun:
+                        The 33rd Network and Distributed System Security Symposium (<font>NDSS 2026, CCF-A</font>)
+                        <br><span>Dependency-aware firmware rehosting for scalable dynamic analysis.</span>
+                    </li>
+                    <li><strong>Through the Authentication Maze: Detecting Authentication Bypass Vulnerabilities in Firmware Binaries</strong>
+                        <br>Nanyu Zhong, Yuekang Li, Yanyan Zou, Jiaxu Zhao, Jinwei Dong, Yang Xiao, Bingwei Peng, <span class="author-me">Yeting Li</span>, Wei Wang, Wei Huo:
+                        The 33rd Network and Distributed System Security Symposium (<font>NDSS 2026, CCF-A</font>)
+                        <br><span>Dynamic firmware analysis for authentication bypass vulnerabilities.</span>
+                    </li>
+                    <li><strong>VULCANBOOST: Boosting ReDoS Fixes through Symbolic Representation and Feature Normalization</strong>
+                        <br><span class="author-me">Yeting Li</span>, Yecheng Sun, Zhiwu Xu, Haiming Chen, Xinyi Wang, Hengyu Yang, Huina Chao, Cen Zhang, Yang Xiao, Yanyan Zou, Feng Li, Wei Huo:
+                        The 34th USENIX Security Symposium (<font>USENIX Security 2025, CCF-A</font>) <b style="color:red">Award: Distinguished Paper Honorable Mention, 6% of accepted papers</b>
+                        <br><span>Highlighted work on ReDoS repair through symbolic representation and feature normalization.</span>
+                    </li>
+                    <li><strong>ZIPPER: Static Taint Analysis for PHP Applications with Precision and Efficiency</strong>
+                        <br>Xinyi Wang, <span class="author-me">Yeting Li*</span>, Jie Lu, Shizhe Cui, Chenghang Shi, Qin Mai, Yunpei Zhang, Yang Xiao, Feng Li, Wei Huo:
+                        The 34th USENIX Security Symposium (<font>USENIX Security 2025, CCF-A</font>)
+                        <br><span>Precise and efficient static taint analysis for PHP web applications.</span>
+                    </li>
+                    <li><strong>From Constraints to Cracks: Constraint Semantic Inconsistencies as Vulnerability Beacons for Embedded Systems</strong>
+                        <br>Jiaxu Zhao, Yuekang Li, Yanyan Zou, Yang Xiao, Naijia Jiang, <span class="author-me">Yeting Li</span>, Nanyu Zhong, Bingwei Peng, Kunpeng Jian, Wei Huo:
+                        The 34th USENIX Security Symposium (<font>USENIX Security 2025, CCF-A</font>)
+                        <br><span>Using constraint semantic inconsistencies as vulnerability signals in embedded systems.</span>
+                    </li>
+                    <li><strong>A Large Scale Study of AI-based Binary Function Similarity Detection Techniques for Security Researchers and Practitioners</strong>
+                        <br>Jingyi Shi, Yufeng Chen, Yang Xiao, Yuekang Li, Zhengzi Xu, Sihao Qiu, Chi Zhang, Keyu Qi, <span class="author-me">Yeting Li</span>, Xingchu Chen, Yanyan Zou, Yang Liu, Wei Huo:
+                        The 40th IEEE/ACM International Conference on Automated Software Engineering (<font>ASE 2025, CCF-A</font>)
+                        <br><span>Large-scale empirical study of AI-based binary function similarity detection for security practice.</span>
                     </li>
                 </ul>
                 </section>
@@ -2689,6 +2528,7 @@ html {
                         <ul class="service-list">
                             <li>IEEE Transactions on Dependable and Secure Computing (TDSC), CCF-A journal.</li>
                             <li>IEEE Transactions on Mobile Computing (TMC), CCF-A journal.</li>
+                            <li>ACM Transactions on Software Engineering and Methodology (TOSEM), CCF-A journal.</li>
                             <li>Computers &amp; Security, CCF-B journal.</li>
                             <li>Science of Computer Programming (SCP), CCF-B journal.</li>
                             <li>Journal of Computer Science and Technology (JCST), CCF-B journal.</li>
@@ -2697,16 +2537,6 @@ html {
                     </div>
                 </div>
                 </section>
-                <section class="home-section" id="cves">
-                <h2>Security Impact / 漏洞发现</h2>
-                <div class="cve-highlight">
-                <p>Our research is driven by real vulnerabilities and measurable security impact. We have found and reported 300+ CVE-class vulnerabilities, including ReDoS vulnerabilities in pypi/npm/maven packages such as Python source code, postcss, and ua-parser-js. Representative vulnerabilities have been validated and assigned CVEs by the community, including snyk.io (e.g., CVE-2021-23354, CVE-2020-28493), MITRE Corporation (e.g., CVE-2020-29651), and package authors (e.g., CVE-2021-21317).</p>
-                <p>团队研究以真实漏洞和可度量安全影响为牵引，累计发现并报告CVE级漏洞300余个，相关技术系统已在国家级安全评测与攻防任务中得到应用。</p>
-                <p><a href="cve.html" class="">→ Selected CVEs</a></p>
-                </div>
-                </section>
-
-
                 <p style="text-align: center"> <a href="https://clustrmaps.com/site/1byq2"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=3b1cfNi9_oAUNSe_b-HSITTmf5ldEDof933C7ocQG5Y&cl=ffffff" /></a></p>
 
             </div>
@@ -2721,112 +2551,67 @@ html {
 
 <script>
 (function () {
-  var section = document.querySelector('#selected-publications');
-  if (!section) {
+  var totalStatTargets = Array.prototype.slice.call(document.querySelectorAll('[data-publication-total]'));
+  var leadStatTargets = Array.prototype.slice.call(document.querySelectorAll('[data-publication-lead]'));
+  if (!totalStatTargets.length && !leadStatTargets.length) {
     return;
   }
 
-  var items = Array.prototype.slice.call(section.querySelectorAll('ul > li'));
-  var buttons = Array.prototype.slice.call(section.querySelectorAll('.publication-filter'));
-  var countLabel = section.querySelector('.publication-filter-count');
-  var yearHeadings = Array.prototype.slice.call(section.querySelectorAll('.year-heading'));
-  var totalStatTargets = Array.prototype.slice.call(document.querySelectorAll('[data-publication-total]'));
-  var leadStatTargets = Array.prototype.slice.call(document.querySelectorAll('[data-publication-lead]'));
-  var topSecurityPattern = /(USENIX Security|Network and Distributed System Security|NDSS|IEEE Symposium on\s+Security and Privacy|\bS&P\b|ACM CCS|\bCCS\b)/i;
-
-  function getText(item) {
-    return item.textContent || '';
-  }
-
-  function getAuthorLine(item) {
-    var lines = (item.innerText || '').split('\n').map(function (line) {
-      return line.trim();
-    }).filter(Boolean);
-    return lines.length > 1 ? lines[1] : '';
-  }
+  var fallbackStats = {
+    total: 41,
+    lead: 21
+  };
 
   function isLeadOrCorresponding(item) {
-    var text = getText(item);
-    return text.indexOf('Yeting Li*') !== -1 || getAuthorLine(item).indexOf('Yeting Li') === 0;
+    var html = item.innerHTML || '';
+    return html.indexOf('Yeting Li*') !== -1 || /<br>\s*(?:<span class="author-me">)?Yeting Li(?:\*<\/span>|<\/span>|\*)?,/i.test(html);
   }
 
-  function updateSummaryStats() {
-    var leadCount = items.filter(isLeadOrCorresponding).length;
+  function setStats(stats) {
     totalStatTargets.forEach(function (target) {
-      target.textContent = String(items.length);
+      target.textContent = String(stats.total);
     });
     leadStatTargets.forEach(function (target) {
-      target.textContent = String(leadCount);
+      target.textContent = String(stats.lead);
     });
   }
 
-  function matchesFilter(item, filter) {
-    var text = getText(item);
-    if (filter === 'ccf-a') {
-      return text.indexOf('CCF-A') !== -1;
+  function extractStats(doc) {
+    var content = doc.querySelector('.publication-main');
+    if (!content) {
+      return null;
     }
-    if (filter === 'ccf-b') {
-      return text.indexOf('CCF-B') !== -1;
+    var items = Array.prototype.slice.call(content.querySelectorAll('ul > li'));
+    if (!items.length) {
+      return null;
     }
-    if (filter === 'ccf-c') {
-      return text.indexOf('CCF-C') !== -1;
-    }
-    if (filter === 'top-security') {
-      return topSecurityPattern.test(text);
-    }
-    if (filter === 'lead') {
-      return isLeadOrCorresponding(item);
-    }
-    return true;
+    return {
+      total: items.length,
+      lead: items.filter(isLeadOrCorresponding).length
+    };
   }
 
-  function updateYears() {
-    yearHeadings.forEach(function (heading) {
-      var list = heading.nextElementSibling;
-      if (!list || list.tagName !== 'UL') {
-        return;
+  setStats(fallbackStats);
+
+  if (!window.fetch || !window.DOMParser) {
+    return;
+  }
+
+  fetch('publication.html', { credentials: 'same-origin' })
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error('Failed to load publication.html');
       }
-      var visible = Array.prototype.some.call(list.children, function (item) {
-        return !item.classList.contains('publication-hidden');
-      });
-      heading.classList.toggle('publication-hidden', !visible);
-      list.classList.toggle('publication-hidden', !visible);
-
-      var navLink = section.querySelector('.publication-year-nav a[href="#' + heading.id + '"]');
-      if (navLink) {
-        navLink.classList.toggle('publication-hidden', !visible);
+      return response.text();
+    })
+    .then(function (html) {
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      var stats = extractStats(doc);
+      if (stats) {
+        setStats(stats);
       }
-    });
-  }
-
-  function applyFilter(filter) {
-    var visibleCount = 0;
-    items.forEach(function (item) {
-      var visible = matchesFilter(item, filter);
-      item.classList.toggle('publication-hidden', !visible);
-      if (visible) {
-        visibleCount += 1;
-      }
-    });
-
-    buttons.forEach(function (button) {
-      button.setAttribute('aria-pressed', String(button.getAttribute('data-filter') === filter));
-    });
-
-    if (countLabel) {
-      countLabel.textContent = 'Showing ' + visibleCount + (visibleCount === 1 ? ' paper' : ' papers');
-    }
-    updateYears();
-  }
-
-  buttons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      applyFilter(button.getAttribute('data-filter') || 'all');
-    });
-  });
-
-  updateSummaryStats();
-  applyFilter('all');
+    })
+    .catch(function () {});
 })();
 </script>
 </body>
