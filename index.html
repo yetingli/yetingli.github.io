@@ -1742,6 +1742,11 @@ html {
   color: #29445c;
   font-size: 0.88rem;
 }
+.author-me {
+  color: #145c74;
+  font-weight: 700;
+  text-decoration: none;
+}
 .hero-actions a {
   display: inline-block;
   padding: 0.5rem 0.8rem;
@@ -1871,10 +1876,14 @@ html {
   line-height: 1.7;
 }
 .recruiting-section {
-  padding: 1.3rem;
+  padding: 1.35rem;
+  border: 1px solid #f0d9b5;
   border-left: 4px solid #b45309;
   background: #fffaf2;
   border-radius: 8px;
+}
+.recruiting-section h2 {
+  border-bottom-color: #edd7b4;
 }
 .recruit-note {
   margin: 1rem 0 0;
@@ -1905,13 +1914,36 @@ html {
 .publication-list b[style] {
   color: #9a3412 !important;
 }
-.publication-list font[color="#9900FF"] {
-  color: #145c74 !important;
+.publication-list font {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.08rem 0.34rem;
+  border: 1px solid #d6e2ee;
+  border-radius: 6px;
+  background: #f6f9fc;
+  color: #29445c;
+  font-size: 0.9em;
 }
 .compact-list > li,
 .service-list > li {
   margin: 0.45rem 0;
   padding-left: 0.1rem;
+}
+.service-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.service-panel {
+  padding: 1rem;
+  border: 1px solid #e2eaf1;
+  border-radius: 8px;
+  background: #fff;
+}
+.service-panel h3 {
+  margin: 0 0 0.55rem;
+  color: #1e3345;
+  font-size: 1.02rem;
 }
 .award-grid {
   display: grid;
@@ -1924,6 +1956,15 @@ html {
   border-radius: 8px;
   background: #f6fbf9;
 }
+@media (max-width: 960px) and (min-width: 761px) {
+  .metrics-grid,
+  .focus-grid,
+  .advantage-grid,
+  .service-groups,
+  .award-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 @media (max-width: 760px) {
   .home-page .theme-default-content:not(.custom) {
     padding: 2.2rem 1.25rem;
@@ -1935,14 +1976,36 @@ html {
   .home-hero .profile .info .name {
     font-size: 2.15rem;
   }
+  .hero-actions a,
+  .publication-list > li,
+  .service-panel {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .hero-actions {
+    gap: 0.5rem;
+  }
+  .highlight-divider {
+    display: none;
+  }
   .metrics-grid,
   .highlight-strip,
   .bilingual-grid,
   .focus-grid,
   .advantage-grid,
   .student-grid,
+  .service-groups,
   .award-grid {
     grid-template-columns: 1fr;
+  }
+  .metric {
+    min-height: auto;
+  }
+  .publication-list > li {
+    padding: 0.9rem;
+  }
+  .publication-list font {
+    margin-top: 0.15rem;
   }
 }
     </style>
@@ -2089,6 +2152,18 @@ html {
                             <h3>Software and System Security</h3>
                             <p>Studying open-source ecosystems, embedded systems, protocol implementations, and real-world offensive and defensive settings. 面向开源生态、嵌入式系统、协议实现与真实攻防场景。</p>
                         </div>
+                        <div class="focus-item">
+                            <h3>Fuzzing and Program Analysis</h3>
+                            <p>Developing testing and analysis techniques for complex software, protocols, firmware, and system components. 面向复杂软件、协议、固件与系统组件开展测试和分析。</p>
+                        </div>
+                        <div class="focus-item">
+                            <h3>Binary and Firmware Security</h3>
+                            <p>Finding vulnerabilities in low-level binaries and embedded firmware through scalable analysis and rehosting. 关注二进制程序与嵌入式固件中的真实安全缺陷。</p>
+                        </div>
+                        <div class="focus-item">
+                            <h3>LLM for Security</h3>
+                            <p>Exploring how large language models can support vulnerability discovery, security evaluation, and code analysis. 探索大模型在漏洞挖掘、安全评测与代码分析中的应用。</p>
+                        </div>
                     </div>
                 </section>
 
@@ -2097,15 +2172,15 @@ html {
                     <p class="section-lead">Our group is continuously recruiting motivated master's students, PhD students, and postdoctoral researchers who are interested in software and system security. 课题组长期招收硕士生、博士生和博士后，欢迎对软件与系统安全、人工智能安全分析、漏洞挖掘与利用感兴趣的同学加入。</p>
                     <div class="advantage-grid">
                         <div class="advantage-item">
-                            <h3>Real Security Problems / 真实安全问题</h3>
+                            <h3>Research Directions / 研究方向</h3>
                             <p>研究选题来自真实软件生态和攻防评测需求，强调可验证、可复现、可落地的安全能力。</p>
                         </div>
                         <div class="advantage-item">
-                            <h3>Top-tier Publication Training / 顶会论文训练</h3>
+                            <h3>Student Training / 科研训练</h3>
                             <p>围绕S&amp;P、USENIX Security、NDSS、ICSE、ASE、ISSTA等顶级会议开展系统化科研训练。</p>
                         </div>
                         <div class="advantage-item">
-                            <h3>Impactful Systems / 系统与平台积累</h3>
+                            <h3>Systems and Impact / 系统与影响</h3>
                             <p>团队长期建设漏洞发现、利用生成与安全评测系统，支持学生做出有影响力的工具和成果。</p>
                         </div>
                     </div>
@@ -2127,69 +2202,69 @@ html {
                 <ul class="publication-list">
 
 <li><strong>Themis: Bridging Documentation and Code to Uncover Access Control Vulnerabilities in GitLab</strong>
-    <br>Yujie Sun, Huina Chao, <font color="#9900FF"><u><strong>Yeting Li*</strong></u></font>, Xinyi Wang, Yiming Liu, Jialun Cao, Qin Mai, Hengyu Yang, Feng Li, Wei Huo, Baoxu Liu:
+    <br>Yujie Sun, Huina Chao, <span class="author-me">Yeting Li*</span>, Xinyi Wang, Yiming Liu, Jialun Cao, Qin Mai, Hengyu Yang, Feng Li, Wei Huo, Baoxu Liu:
     <br>2026 IEEE International Conference on Acoustics, Speech and Signal Processing (<font>ICASSP 2026, CCF-B</font>)
     <br><span>LLM-assisted consistency checking between documentation-derived permissions and code-level enforcement for GitLab access control vulnerabilities.</span>
 </li>
 
 <li><strong>LifeFuzz: Lifecycle-Guided Fuzzing for Windows Driver Cross-Handler Vulnerabilities</strong>
-    <br>Chendong Yu, Yuekang Li, Yang Xiao, Jie Lu, <font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Defang Bo, Wei Huo:
+    <br>Chendong Yu, Yuekang Li, Yang Xiao, Jie Lu, <span class="author-me">Yeting Li</span>, Defang Bo, Wei Huo:
     <br>The 21st ACM European Conference on Computer Systems (<font>EuroSys 2026, CCF-A</font>)
     <br><span>Lifecycle-guided Windows driver fuzzing for cross-handler vulnerabilities.</span>
 </li>
 
 <li><strong>User-Space Dependency-Aware Rehosting for Linux-Based Firmware Binaries</strong>
-    <br>Chuan Qin, Cen Zhang, Yaowen Zheng, Puzhuo Liu, Jian Zhang, <font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Weidong Zhang, Yang Liu, Limin Sun:
+    <br>Chuan Qin, Cen Zhang, Yaowen Zheng, Puzhuo Liu, Jian Zhang, <span class="author-me">Yeting Li</span>, Weidong Zhang, Yang Liu, Limin Sun:
     <br>The 33rd Network and Distributed System Security Symposium (<font>NDSS 2026, CCF-A</font>)
     <br><span>Dependency-aware firmware rehosting for scalable dynamic analysis.</span>
 </li>
 
 <li><strong>Through the Authentication Maze: Detecting Authentication Bypass Vulnerabilities in Firmware Binaries</strong>
-    <br>Nanyu Zhong, Yuekang Li, Yanyan Zou, Jiaxu Zhao, Jinwei Dong, Yang Xiao, Bingwei Peng, <font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Wei Wang, Wei Huo:
+    <br>Nanyu Zhong, Yuekang Li, Yanyan Zou, Jiaxu Zhao, Jinwei Dong, Yang Xiao, Bingwei Peng, <span class="author-me">Yeting Li</span>, Wei Wang, Wei Huo:
     <br>The 33rd Network and Distributed System Security Symposium (<font>NDSS 2026, CCF-A</font>)
     <br><span>Dynamic firmware analysis for authentication bypass vulnerabilities.</span>
 </li>
 
 <li><strong>VULCANBOOST: Boosting ReDoS Fixes through Symbolic Representation and Feature Normalization</strong>
-    <br><font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Yecheng Sun, Zhiwu Xu, Haiming Chen, Xinyi Wang, Hengyu Yang, Huina Chao, Cen Zhang, Yang Xiao, Yanyan Zou, Feng Li, Wei Huo:
+    <br><span class="author-me">Yeting Li</span>, Yecheng Sun, Zhiwu Xu, Haiming Chen, Xinyi Wang, Hengyu Yang, Huina Chao, Cen Zhang, Yang Xiao, Yanyan Zou, Feng Li, Wei Huo:
     <br>The 34th USENIX Security Symposium (<font>USENIX Security 2025, CCF-A</font>)  <b style="color:red">🏆 Distinguished Paper Honorable Mention, 6% of accepted papers</b>
     <br><span>Highlighted work on ReDoS repair through symbolic representation and feature normalization.</span>
 </li>
 
 
 <li><strong>ZIPPER: Static Taint Analysis for PHP Applications with Precision and Efficiency</strong>
-    <br>Xinyi Wang, <font color="#9900FF"><u><strong>Yeting Li*</strong></u></font>, Jie Lu, Shizhe Cui, Chenghang Shi, Qin Mai, Yunpei Zhang, Yang Xiao, Feng Li, Wei Huo:
+    <br>Xinyi Wang, <span class="author-me">Yeting Li*</span>, Jie Lu, Shizhe Cui, Chenghang Shi, Qin Mai, Yunpei Zhang, Yang Xiao, Feng Li, Wei Huo:
     <br>The 34th USENIX Security Symposium (<font>USENIX Security 2025, CCF-A</font>)
     <br><span>Precise and efficient static taint analysis for PHP web applications.</span>
 </li>
 
 <li><strong>From Constraints to Cracks: Constraint Semantic Inconsistencies as Vulnerability Beacons for Embedded Systems</strong>
-    <br>Jiaxu Zhao, Yuekang Li, Yanyan Zou, Yang Xiao, Naijia Jiang, <font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Nanyu Zhong, Bingwei Peng, Kunpeng Jian, Wei Huo:
+    <br>Jiaxu Zhao, Yuekang Li, Yanyan Zou, Yang Xiao, Naijia Jiang, <span class="author-me">Yeting Li</span>, Nanyu Zhong, Bingwei Peng, Kunpeng Jian, Wei Huo:
     <br>The 34th USENIX Security Symposium (<font>USENIX Security 2025, CCF-A</font>)
     <br><span>Using constraint semantic inconsistencies as vulnerability signals in embedded systems.</span>
 </li>
 
 
 <li><strong>CodeCleaner: Elevating Standards with A Robust Data Contamination Mitigation Toolkit</strong>
-    <br>Jialun Cao, Songqiang Chen, Wuqi Zhang, Hau Ching Lo, <font color="#9900FF"><u><strong>Yeting Li*</strong></u></font>, Shing-Chi Cheung:
+    <br>Jialun Cao, Songqiang Chen, Wuqi Zhang, Hau Ching Lo, <span class="author-me">Yeting Li*</span>, Shing-Chi Cheung:
     <br>The 16th Asia-Pacific Symposium on Internetware (<font>Internetware 2025, CCF-C</font>)
     <br><span>Toolkit support for mitigating benchmark data contamination in LLM-based code evaluation.</span>
 </li>
 
 <li><strong>A Large Scale Study of AI-based Binary Function Similarity Detection Techniques for Security Researchers and Practitioners</strong>
-    <br>Jingyi Shi, Yufeng Chen, Yang Xiao, Yuekang Li, Zhengzi Xu, Sihao Qiu, Chi Zhang, Keyu Qi, <font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Xingchu Chen, Yanyan Zou, Yang Liu, Wei Huo:
+    <br>Jingyi Shi, Yufeng Chen, Yang Xiao, Yuekang Li, Zhengzi Xu, Sihao Qiu, Chi Zhang, Keyu Qi, <span class="author-me">Yeting Li</span>, Xingchu Chen, Yanyan Zou, Yang Liu, Wei Huo:
     <br>The 40th IEEE/ACM International Conference on Automated Software Engineering (<font>ASE 2025, CCF-A</font>)
     <br><span>Large-scale empirical study of AI-based binary function similarity detection for security practice.</span>
 </li>
 
 <li><strong>Understanding Resource Injection Vulnerabilities in Kubernetes Ecosystems</strong>
-    <br>Defang Bo, Jie Lu, Feng Li, Jingting Chen, Jinchen Wang, Chendong Yu, <font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Wei Huo:
+    <br>Defang Bo, Jie Lu, Feng Li, Jingting Chen, Jinchen Wang, Chendong Yu, <span class="author-me">Yeting Li</span>, Wei Huo:
     <br>The 40th IEEE/ACM International Conference on Automated Software Engineering (<font>ASE 2025, CCF-A</font>)
     <br><span>Security analysis of resource injection vulnerabilities in Kubernetes ecosystems.</span>
 </li>
 
 <li><strong>Vulnerability-Affected Versions Identification: How Far Are We?</strong>
-    <br>Xingchu Chen, Chengwei Liu, Jialun Cao, Yang Xiao, Xinyue Cai, <font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Jingyi Shi, Tianqi Sun, Haiming Chen, Wei Huo:
+    <br>Xingchu Chen, Chengwei Liu, Jialun Cao, Yang Xiao, Xinyue Cai, <span class="author-me">Yeting Li</span>, Jingyi Shi, Tianqi Sun, Haiming Chen, Wei Huo:
     <br>The 40th IEEE/ACM International Conference on Automated Software Engineering (<font>ASE 2025, CCF-A</font>)
     <br><span>Measurement of vulnerability-affected version identification and its practical limitations.</span>
 </li>
@@ -2197,19 +2272,19 @@ html {
 
                   <li><strong>A Survey of Protocol Fuzzing</strong>
                     <br>Xiaohan Zhang, Cen Zhang, Xinghua Li, Zhengjie Du, Bing Mao, Yuekang Li, Yaowen Zheng, 
-                    <br><font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Li Pan, Yang Liu, Robert Deng: ACM Computing Surveys (CSUR), 57(2): 35:1-35:36, 2025
+                    <br><span class="author-me">Yeting Li</span>, Li Pan, Yang Liu, Robert Deng: ACM Computing Surveys (CSUR), 57(2): 35:1-35:36, 2025
                     <br><span>Comprehensive survey of protocol fuzzing techniques, challenges, and future directions.</span>
            </li>
 
 
                     <li><strong>Fuzzing for Stateful Protocol Implementations: Are We There Yet?</strong>
-                    <br>Kunpeng Jian, Yanyan Zou, <font color="#9900FF"><u><strong>Yeting Li*</strong></u></font>,
+                    <br>Kunpeng Jian, Yanyan Zou, <span class="author-me">Yeting Li*</span>,
                          Jialun Cao, Menghao Li, Jian Sun, Jingyi Shi, Wei Huo:
                     <br>The 18th Theoretical Aspects of Software Engineering Conference (<font>TASE 2024, CCF-C</font>), 29 July - 1 August, 2024, Guiyang, China
                     <br><span>Study and benchmark of fuzzing techniques for stateful protocol implementations.</span>
            </li>
                     <li><strong>How Effective Are They? Exploring Large Language Model Based Fuzz Driver Generation</strong>
-                        <br>Cen Zhang, Yaowen Zheng, Mingqiang Bai, <font color="#9900FF"><u><strong>Yeting Li</strong></u></font>,
+                        <br>Cen Zhang, Yaowen Zheng, Mingqiang Bai, <span class="author-me">Yeting Li</span>,
                          Wei Ma, Xiaofei Xie, Yuekang Li, Limin Sun, Yang Liu:
                     <br>The 33rd ACM SIGSOFT International Symposium on Software Testing and Analysis (<font>ISSTA 2024, CCF-A</font>), 16 - 20 September, 2024, Vienna, Austria
                     <br><span>Evaluation of large language model based fuzz driver generation.</span>
@@ -2217,37 +2292,37 @@ html {
            </li>
                   <li><strong>Semantic-Enhanced Static Vulnerability Detection in Baseband 
                     Firmware</strong>
-                    <br>Yiming Liu, Cen Zhang, Feng Li, <font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Jianhua Zhou, Jian Wang, Lanlan Zhan, Yang Liu, Wei Huo:
+                    <br>Yiming Liu, Cen Zhang, Feng Li, <span class="author-me">Yeting Li</span>, Jianhua Zhou, Jian Wang, Lanlan Zhan, Yang Liu, Wei Huo:
                     <br>The 46th International Conference on Software Engineering (<font  >ICSE 2024, CCF-A</font>),  14 - 20 April 2024, Lisbon, Portugal <b style="color:red">🏆ACM SIGSOFT Distinguished Paper Award</b>
                     <br><span>Semantic-enhanced static vulnerability detection for baseband firmware.</span>
            </li>
 
            <li><strong>Leveraging Semantic Relations in Code and Data to Enhance Taint Analysis of Embedded Systems</strong>
-            <br>Jiaxu Zhao, Yuekang Li, Yanyan Zou, Zhaohui Liang, Yang Xiao, <font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Bingwei Peng, Nanyu Zhong, Xinyi Wang, Wei Wang, Wei Huo:
+            <br>Jiaxu Zhao, Yuekang Li, Yanyan Zou, Zhaohui Liang, Yang Xiao, <span class="author-me">Yeting Li</span>, Bingwei Peng, Nanyu Zhong, Xinyi Wang, Wei Wang, Wei Huo:
             <br>The 33rd USENIX Security Symposium (<font  >USENIX Security 2024, CCF-A</font>),  14 - 16 August 2024, Philadelphia, PA, USA
             <br><span>Enhancing embedded-system taint analysis by modeling semantic relations in code and data.</span></li>
                     
                      <li><strong>File Hijacking Vulnerability: The Elephant in the Room</strong>
-                         <br>Chendong Yu, Yang Xiao, Jie Lu, Yuekang Li, <font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Lian Li, Yifan Dong, Jian Wang, Jingyi Shi, Defang Bo, Wei Huo:
+                         <br>Chendong Yu, Yang Xiao, Jie Lu, Yuekang Li, <span class="author-me">Yeting Li</span>, Lian Li, Yifan Dong, Jian Wang, Jingyi Shi, Defang Bo, Wei Huo:
                          <br>The 31st Annual Network and Distributed System Security Symposium (<font  >NDSS 2024, CCF-A</font>), 26 Feb - 1 March 2024, San Diego, California
                          <br><span>Systematic study of file hijacking vulnerabilities and real-world security risks.</span>
                 </li>
 
                      <li><strong>Aster: Automatic Speech Recognition System Accessibility Testing for Stutterers</strong>
-                    <br>Yi Liu, Yuekang Li, Gelei Deng, Felix Juefei-Xu, Yao Du, Cen Zhang, Chengwei Liu, <font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Lei Ma, Yang Liu:
+                    <br>Yi Liu, Yuekang Li, Gelei Deng, Felix Juefei-Xu, Yao Du, Cen Zhang, Chengwei Liu, <span class="author-me">Yeting Li</span>, Lei Ma, Yang Liu:
                     <br>The 38th IEEE/ACM International Conference on Automated Software Engineering (<font  >ASE 2023, CCF-A</font>), 11 - 15 Sep 2023, Kirchberg, Luxembourg
                     <br><span>Accessibility testing framework for speech recognition systems used by stutterers.</span>
                 </li>
 
 
                   <li><strong>ACETest: Automated Constraint Extraction for Testing Deep Learning Operators</strong>
-                    <br>Jingyi Shi, Yang Xiao, Yuekang Li, <font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Dongsong Yu, Chendong Yu, Hui Su, Yufeng Chen, Wei Huo:
+                    <br>Jingyi Shi, Yang Xiao, Yuekang Li, <span class="author-me">Yeting Li</span>, Dongsong Yu, Chendong Yu, Hui Su, Yufeng Chen, Wei Huo:
                     <br>The 32nd ACM SIGSOFT International Symposium on Software Testing and Analysis (<font  >ISSTA 2023, CCF-A</font>), 17 - 21 July 2023, Washington, United States
                     <br><span>Automated constraint extraction for testing deep learning operators.</span>
                 </li> 
                    
                   <li><strong>Effective ReDoS Detection by Principled Vulnerability Modeling and Exploit Generation</strong>
-                    <br>Xinyi Wang, Cen Zhang, <font color="#9900FF"><u><strong>Yeting Li*</strong></u></font>, Zhiwu Xu, Shuailin Huang, Yi Liu, Yican Yao, Yang Xiao, Yanyan Zou, Yang Liu, Wei Huo:
+                    <br>Xinyi Wang, Cen Zhang, <span class="author-me">Yeting Li*</span>, Zhiwu Xu, Shuailin Huang, Yi Liu, Yican Yao, Yang Xiao, Yanyan Zou, Yang Liu, Wei Huo:
                     <br>The 44th IEEE Symposium on
                     Security and Privacy (<font  >S&P 2023, CCF-A</font>), 22 - 25 May 2023, San Francisco, CA
                     <br><span>Principled ReDoS vulnerability modeling and exploit generation.</span>
@@ -2257,13 +2332,13 @@ html {
                  
                   <li><strong>RegexScalpel: Regular Expression Denial of Service (ReDoS)
                     Defense by Localize-and-Fix</strong>
-                    <br><font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Yecheng Sun, Zhiwu Xu, Jialun Cao, Yuekang Li, Rongchen Li, Haiming Chen, Shing-Chi Cheung, Yang Liu, Yang Xiao:
+                    <br><span class="author-me">Yeting Li</span>, Yecheng Sun, Zhiwu Xu, Jialun Cao, Yuekang Li, Rongchen Li, Haiming Chen, Shing-Chi Cheung, Yang Liu, Yang Xiao:
                     <br>The 31st USENIX Security Symposium (<font  >USENIX Security 2022, CCF-A</font>), 10 - 12 Aug 2022, BOSTON, MA, USA
                     <br><span>Localize-and-fix defense for ReDoS vulnerabilities in regular expressions.</span>
                 </li>
                   
                   <li><strong>SemMT: A Semantic-Based Testing Approach for Machine Translation Systems</strong>
-                    <br>Jialun Cao, Meiziniu Li, <font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Ming Wen, Shing-Chi Cheung, Haiming Chen:
+                    <br>Jialun Cao, Meiziniu Li, <span class="author-me">Yeting Li</span>, Ming Wen, Shing-Chi Cheung, Haiming Chen:
                     <br>ACM Transactions on Software Engineering and Methodology (<font  >TOSEM 2022, CCF-A</font>)
                     <br><span>Semantic-based testing approach for machine translation systems.</span></li>
                   
@@ -2272,23 +2347,23 @@ html {
                   
 
                     <li><strong>ReDoSHunter: A Combined Static and Dynamic Approach for Regular Expression DoS Detection</strong>
-                        <br><font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Zixuan Chen, Jialun Cao,
+                        <br><span class="author-me">Yeting Li</span>, Zixuan Chen, Jialun Cao,
                         Zhiwu Xu, Qiancheng Peng, Haiming Chen, Liyuan Chen, Shing-Chi Cheung: <br>The 30th USENIX Security Symposium (<font  >USENIX Security 2021, CCF-A</font>), 11 - 13 Aug 2021, Virtual
                         <br><span>Combined static and dynamic detection for regular expression denial-of-service vulnerabilities.</span>
                     </li>
                     <li><strong>TransRegex: Multi-modal Regular Expression Synthesis by Generate-and-Repair</strong>
-                        <br><font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Shuaimin Li, Zhiwu Xu, Jialun Cao, Zixuan Chen, Yun Hu,
+                        <br><span class="author-me">Yeting Li</span>, Shuaimin Li, Zhiwu Xu, Jialun Cao, Zixuan Chen, Yun Hu,
                         Haiming Chen, Shing-Chi Cheung: <br>The 43rd International Conference on Software Engineering
                         (<font  >ICSE 2021, CCF-A</font>), 25 - 28 May 2021, Virtual (originally in Madrid, Spain)
                         <br><span>Multi-modal regular expression synthesis through generate-and-repair.</span>
                     </li>
-                    <li><strong>FlashRegex: Deducing Anti-ReDoS Regexes from Examples</strong> <br><font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Zhiwu Xu, Jialun Cao, Haiming Chen, Tingjian Ge, Shing-Chi Cheung, Haoren Zhao:<br>
+                    <li><strong>FlashRegex: Deducing Anti-ReDoS Regexes from Examples</strong> <br><span class="author-me">Yeting Li</span>, Zhiwu Xu, Jialun Cao, Haiming Chen, Tingjian Ge, Shing-Chi Cheung, Haoren Zhao:<br>
                         The 35th IEEE/ACM International Conference on Automated Software Engineering (<font  >ASE 2020, CCF-A</font>), 21 - 25
                         Sep 2020, Melbourne, Australia
                         <br><span>Example-guided inference of anti-ReDoS regular expressions.</span>
                     </li>
                     <li><strong>FlashSchema: Achieving High Quality XML Schemas with Powerful Inference Algorithms and
-                        Large-scale Schema Data</strong> <br><font color="#9900FF"><u><strong>Yeting Li</strong></u></font>, Jialun Cao, Haiming
+                        Large-scale Schema Data</strong> <br><span class="author-me">Yeting Li</span>, Jialun Cao, Haiming
                         Chen, Tingjian Ge, Zhiwu Xu, Qiancheng Peng:<br> The 36th IEEE International Conference on Data
                         Engineering (<font  >ICDE 2020, CCF-A</font>), 20 - 24 Apr 2020, Dallas, Texas
                         <br><span>High-quality XML schema inference using powerful algorithms and large-scale schema data.</span>
@@ -2308,17 +2383,27 @@ html {
                 <section class="home-section" id="professional-services">
                 <h2>Professional Services / 学术服务</h2>
                 <p class="section-lead">I actively serve the software security and software engineering communities as a reviewer and committee member for leading international conferences and journals, including:</p>
-                <ul class="service-list">
-                    <li>USENIX Security Symposium (USENIX Security) 2024, CCF-A top-tier security conference.</li>
-                    <li>IEEE Transactions on Dependable and Secure Computing (TDSC), CCF-A journal.</li>
-                    <li>IEEE Transactions on Mobile Computing (TMC), CCF-A journal.</li>
-                    <li>Computers &amp; Security, CCF-B journal.</li>
-                    <li>Science of Computer Programming (SCP), CCF-B journal.</li>
-                    <li>Journal of Computer Science and Technology (JCST), CCF-B journal.</li>
-                    <li>Theoretical Aspects of Software Engineering (TASE) 2024/2026, CCF-C conference.</li>
-                    <li>Workshop on the use of Large Language Models for Cybersecurity (LLM4Sec) @ IEEE ICDM 2025.</li>
-                    <li>《计算机研究与发展》, CCF-A recommended Chinese journal and T1 high-quality journal in computing.</li>
-                </ul>
+                <div class="service-groups">
+                    <div class="service-panel">
+                        <h3>Conferences &amp; Workshops</h3>
+                        <ul class="service-list">
+                            <li>USENIX Security Symposium (USENIX Security) 2024, CCF-A top-tier security conference.</li>
+                            <li>Theoretical Aspects of Software Engineering (TASE) 2024/2026, CCF-C conference.</li>
+                            <li>Workshop on the use of Large Language Models for Cybersecurity (LLM4Sec) @ IEEE ICDM 2025.</li>
+                        </ul>
+                    </div>
+                    <div class="service-panel">
+                        <h3>Journals</h3>
+                        <ul class="service-list">
+                            <li>IEEE Transactions on Dependable and Secure Computing (TDSC), CCF-A journal.</li>
+                            <li>IEEE Transactions on Mobile Computing (TMC), CCF-A journal.</li>
+                            <li>Computers &amp; Security, CCF-B journal.</li>
+                            <li>Science of Computer Programming (SCP), CCF-B journal.</li>
+                            <li>Journal of Computer Science and Technology (JCST), CCF-B journal.</li>
+                            <li>《计算机研究与发展》, CCF-A recommended Chinese journal and T1 high-quality journal in computing.</li>
+                        </ul>
+                    </div>
+                </div>
                 </section>
                 <section class="home-section" id="cves">
                 <h2>Security Impact / 漏洞发现</h2>
