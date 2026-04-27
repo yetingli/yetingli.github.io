@@ -1914,6 +1914,7 @@ html {
 .publication-list strong,
 #selected-publications > ul > li strong {
   color: #18293a;
+  overflow-wrap: anywhere;
 }
 .publication-list b[style],
 #selected-publications > ul > li b[style] {
@@ -1980,6 +1981,7 @@ html {
   color: #506172;
   line-height: 1.45;
   font-size: 0.92rem;
+  overflow-wrap: anywhere;
 }
 #selected-publications > p.year-heading > strong {
   display: inline-flex;
@@ -2124,6 +2126,11 @@ html {
     width: 100%;
     box-sizing: border-box;
   }
+  .publication-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+  }
   .hero-actions {
     gap: 0.5rem;
   }
@@ -2131,6 +2138,7 @@ html {
     display: none;
   }
   .metrics-grid,
+  .publication-stats,
   .highlight-strip,
   .bilingual-grid,
   .focus-grid,
@@ -2171,6 +2179,11 @@ html {
     margin-top: 0.15rem;
   }
 }
+@media (max-width: 480px) {
+  .publication-actions {
+    grid-template-columns: 1fr;
+  }
+}
     </style>
 </head>
 <body>
@@ -2193,7 +2206,7 @@ html {
                                              class="nav-link router-link-exact-active router-link-active">
                         Home
                     </a></div>
-                    <div class="nav-item"><a href="publication.html" class="nav-link">
+                    <div class="nav-item"><a href="#selected-publications" class="nav-link">
                         Publications
                     </a></div>
                     <div class="nav-item"><a href="#professional-services" class="nav-link">
@@ -2221,7 +2234,7 @@ html {
                                          class="nav-link router-link-exact-active router-link-active">
                     Home
                 </a></div>
-                <div class="nav-item"><a href="publication.html" class="nav-link">
+                <div class="nav-item"><a href="#selected-publications" class="nav-link">
                     Publications
                 </a></div>
                 <div class="nav-item"><a href="#professional-services" class="nav-link">

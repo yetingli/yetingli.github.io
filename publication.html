@@ -951,6 +951,7 @@ td {
   color: #506172;
   line-height: 1.45;
   font-size: 0.92rem;
+  overflow-wrap: anywhere;
 }
 .publication-page .theme-default-content:not(.custom) > p.year-heading > strong {
   display: inline-flex;
@@ -989,6 +990,7 @@ td {
 }
 .publication-page .theme-default-content:not(.custom) > ul > li strong {
   color: #18293a;
+  overflow-wrap: anywhere;
 }
 .publication-page .theme-default-content:not(.custom) > ul > li em {
   font-style: normal;
@@ -1028,11 +1030,16 @@ td {
   .publication-hero h1 {
     font-size: 2.15rem;
   }
+  .publication-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+  }
   .publication-stats {
     grid-template-columns: 1fr;
   }
   .publication-actions a {
-    flex: 1 1 auto;
+    min-width: 0;
     text-align: center;
   }
   .publication-filters,
@@ -1057,6 +1064,11 @@ td {
   }
   .publication-page .theme-default-content:not(.custom) > ul > li font {
     margin-top: 0.15rem;
+  }
+}
+@media (max-width: 480px) {
+  .publication-actions {
+    grid-template-columns: 1fr;
   }
 }
     </style>
