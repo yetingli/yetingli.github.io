@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-US">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -889,6 +889,34 @@ td {
   gap: 0.45rem;
   margin-top: 1rem;
 }
+.publication-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+.publication-filter {
+  padding: 0.42rem 0.72rem;
+  border: 1px solid #cbd9e6;
+  border-radius: 8px;
+  background: #fff;
+  color: #163b5c;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.publication-filter:hover,
+.publication-filter[aria-pressed="true"] {
+  border-color: #145c74;
+  background: #145c74;
+  color: #fff;
+}
+.publication-filter-count {
+  margin-top: 0.75rem;
+  color: #506172;
+  font-size: 0.92rem;
+}
 .publication-year-nav a {
   padding: 0.34rem 0.64rem;
   border: 1px solid #d6e2ee;
@@ -937,6 +965,9 @@ td {
 }
 .year-heading {
   scroll-margin-top: 4.7rem;
+}
+.publication-hidden {
+  display: none !important;
 }
 .publication-page .theme-default-content:not(.custom) > ul {
   list-style: none;
@@ -1000,10 +1031,23 @@ td {
   .publication-stats {
     grid-template-columns: 1fr;
   }
-  .publication-actions a,
-  .publication-year-nav a {
+  .publication-actions a {
     flex: 1 1 auto;
     text-align: center;
+  }
+  .publication-filters,
+  .publication-year-nav {
+    flex-wrap: nowrap;
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    padding: 0 1.25rem 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .publication-filter,
+  .publication-year-nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
   }
   .publication-stat {
     min-height: auto;
@@ -1790,8 +1834,8 @@ a.sidebar-link.active {
                                              class="nav-link router-link-exact-active router-link-active">
                         Publications
                     </a></div>
-                    <div class="nav-item"><a href="cve.html" class="nav-link">
-                        CVEs
+                    <div class="nav-item"><a href="https://yetingli.github.io/#professional-services" class="nav-link">
+                        Services
                     </a></div>
                     <div class="nav-item"><a href="https://yetingli.github.io/#prospective-students" class="nav-link">
                         Students
@@ -1818,8 +1862,8 @@ a.sidebar-link.active {
                                          class="nav-link router-link-exact-active router-link-active">
                     Publications
                 </a></div>
-                <div class="nav-item"><a href="cve.html" class="nav-link">
-                    CVEs
+                <div class="nav-item"><a href="https://yetingli.github.io/#professional-services" class="nav-link">
+                    Services
                 </a></div>
                 <div class="nav-item"><a href="https://yetingli.github.io/#prospective-students" class="nav-link">
                     Students
@@ -1845,15 +1889,24 @@ a.sidebar-link.active {
                     <div class="publication-actions">
                         <a href="https://scholar.google.com/citations?user=ESEQOMMAAAAJ" class="primary">Google Scholar</a>
                         <a href="https://dblp.uni-trier.de/pid/185/7953.html">DBLP</a>
-                        <a href="index.html#selected-publications">Selected Publications</a>
+                        <a href="index.html#selected-publications">Homepage Publications</a>
                         <a href="index.html#prospective-students">Prospective Students</a>
                     </div>
                     <div class="publication-stats">
-                        <div class="publication-stat"><strong>41</strong><span>peer-reviewed papers listed in reverse chronological order</span></div>
-                        <div class="publication-stat"><strong>17</strong><span>first-author or corresponding-author publications</span></div>
+                        <div class="publication-stat"><strong data-publication-total>...</strong><span>peer-reviewed papers listed in reverse chronological order</span></div>
+                        <div class="publication-stat"><strong data-publication-lead>...</strong><span>first-author or corresponding-author publications</span></div>
                         <div class="publication-stat"><strong>Top venues</strong><span>IEEE S&amp;P, USENIX Security, NDSS, EuroSys, ICSE, ASE, ISSTA</span></div>
                         <div class="publication-stat"><strong>Awards</strong><span>ICSE 2024 Distinguished Paper; USENIX Security 2025 Honorable Mention</span></div>
                     </div>
+                    <div class="publication-filters" aria-label="Publication filters">
+                        <button class="publication-filter" type="button" data-filter="all" aria-pressed="true">All</button>
+                        <button class="publication-filter" type="button" data-filter="ccf-a" aria-pressed="false">CCF-A</button>
+                        <button class="publication-filter" type="button" data-filter="ccf-b" aria-pressed="false">CCF-B</button>
+                        <button class="publication-filter" type="button" data-filter="ccf-c" aria-pressed="false">CCF-C</button>
+                        <button class="publication-filter" type="button" data-filter="top-security" aria-pressed="false">Top Security</button>
+                        <button class="publication-filter" type="button" data-filter="lead" aria-pressed="false">First / Corresponding</button>
+                    </div>
+                    <div class="publication-filter-count" aria-live="polite">Showing publications</div>
                     <nav class="publication-year-nav" aria-label="Publication years">
                         <a href="#year-2026">2026</a>
                         <a href="#year-2025">2025</a>
@@ -2131,5 +2184,115 @@ a.sidebar-link.active {
 </div>
 
 
+<script>
+(function () {
+  var content = document.querySelector('.publication-page .theme-default-content');
+  if (!content) {
+    return;
+  }
+
+  var items = Array.prototype.slice.call(content.querySelectorAll('ul > li'));
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.publication-filter'));
+  var countLabel = document.querySelector('.publication-filter-count');
+  var yearHeadings = Array.prototype.slice.call(document.querySelectorAll('.year-heading'));
+  var totalStatTargets = Array.prototype.slice.call(document.querySelectorAll('[data-publication-total]'));
+  var leadStatTargets = Array.prototype.slice.call(document.querySelectorAll('[data-publication-lead]'));
+  var topSecurityPattern = /(USENIX Security|Network and Distributed System Security|NDSS|IEEE Symposium on\s+Security and Privacy|\bS&P\b|ACM CCS|\bCCS\b)/i;
+
+  function getText(item) {
+    return item.textContent || '';
+  }
+
+  function getAuthorLine(item) {
+    var lines = (item.innerText || '').split('\n').map(function (line) {
+      return line.trim();
+    }).filter(Boolean);
+    return lines.length > 1 ? lines[1] : '';
+  }
+
+  function isLeadOrCorresponding(item) {
+    var text = getText(item);
+    return text.indexOf('Yeting Li*') !== -1 || getAuthorLine(item).indexOf('Yeting Li') === 0;
+  }
+
+  function updateSummaryStats() {
+    var leadCount = items.filter(isLeadOrCorresponding).length;
+    totalStatTargets.forEach(function (target) {
+      target.textContent = String(items.length);
+    });
+    leadStatTargets.forEach(function (target) {
+      target.textContent = String(leadCount);
+    });
+  }
+
+  function matchesFilter(item, filter) {
+    var text = getText(item);
+    if (filter === 'ccf-a') {
+      return text.indexOf('CCF-A') !== -1;
+    }
+    if (filter === 'ccf-b') {
+      return text.indexOf('CCF-B') !== -1;
+    }
+    if (filter === 'ccf-c') {
+      return text.indexOf('CCF-C') !== -1;
+    }
+    if (filter === 'top-security') {
+      return topSecurityPattern.test(text);
+    }
+    if (filter === 'lead') {
+      return isLeadOrCorresponding(item);
+    }
+    return true;
+  }
+
+  function updateYears() {
+    yearHeadings.forEach(function (heading) {
+      var list = heading.nextElementSibling;
+      if (!list || list.tagName !== 'UL') {
+        return;
+      }
+      var visible = Array.prototype.some.call(list.children, function (item) {
+        return !item.classList.contains('publication-hidden');
+      });
+      heading.classList.toggle('publication-hidden', !visible);
+      list.classList.toggle('publication-hidden', !visible);
+
+      var navLink = document.querySelector('.publication-year-nav a[href="#' + heading.id + '"]');
+      if (navLink) {
+        navLink.classList.toggle('publication-hidden', !visible);
+      }
+    });
+  }
+
+  function applyFilter(filter) {
+    var visibleCount = 0;
+    items.forEach(function (item) {
+      var visible = matchesFilter(item, filter);
+      item.classList.toggle('publication-hidden', !visible);
+      if (visible) {
+        visibleCount += 1;
+      }
+    });
+
+    buttons.forEach(function (button) {
+      button.setAttribute('aria-pressed', String(button.getAttribute('data-filter') === filter));
+    });
+
+    if (countLabel) {
+      countLabel.textContent = 'Showing ' + visibleCount + (visibleCount === 1 ? ' paper' : ' papers');
+    }
+    updateYears();
+  }
+
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      applyFilter(button.getAttribute('data-filter') || 'all');
+    });
+  });
+
+  updateSummaryStats();
+  applyFilter('all');
+})();
+</script>
 </body>
 </html>
