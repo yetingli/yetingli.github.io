@@ -1171,6 +1171,403 @@ td {
 }
     </style>
 
+    <style id="pm-publications-redesign">
+:root {
+  --pm-bg: #fbfaf7;
+  --pm-ink: #18222c;
+  --pm-muted: #69757f;
+  --pm-accent: #5d7079;
+  --pm-line: rgba(24, 34, 44, 0.1);
+}
+
+html,
+body {
+  background: linear-gradient(180deg, #fdfcf9 0%, var(--pm-bg) 100%);
+  color: var(--pm-ink);
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+body {
+  line-height: 1.72;
+}
+
+.publication-page .page,
+.publication-page .theme-container {
+  background: transparent;
+}
+
+.publication-page .theme-default-content.content__default {
+  max-width: 1020px;
+  padding: 3rem 2rem 5.2rem;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  background: rgba(253, 252, 249, 0.9);
+  border-bottom: 1px solid var(--pm-line);
+  box-shadow: 0 4px 18px rgba(24, 34, 44, 0.03);
+}
+
+.site-name {
+  font-family: Georgia, "Palatino Linotype", "Noto Serif SC", serif;
+  letter-spacing: 0.03em;
+  color: var(--pm-ink);
+}
+
+.nav-item > a:not(.external),
+.sidebar .nav-item > a:not(.external) {
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-item > a:not(.external):hover,
+.nav-item > a:not(.external).router-link-active,
+.nav-item > a:not(.external).router-link-exact-active {
+  background: rgba(93, 112, 121, 0.06);
+  color: var(--pm-accent);
+}
+
+.publication-hero {
+  padding: 0.1rem 0 2.35rem;
+  border-bottom: 1px solid var(--pm-line);
+}
+
+.publication-hero h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: Georgia, "Palatino Linotype", "Noto Serif SC", serif;
+  font-size: clamp(2.4rem, 3.5vw, 3.6rem);
+  line-height: 1.06;
+  color: var(--pm-ink);
+}
+
+.publication-hero .section-lead {
+  max-width: 760px;
+  margin-top: 0.85rem;
+  color: var(--pm-muted);
+  font-size: 1rem;
+  line-height: 1.82;
+}
+
+.publication-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1rem;
+  margin-top: 0.95rem;
+}
+
+.publication-actions a {
+  display: inline;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--pm-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.publication-actions a:hover,
+.publication-actions a.primary,
+.publication-actions a.primary:hover {
+  background: transparent;
+  border: 0;
+  color: var(--pm-ink);
+  text-decoration: none;
+}
+
+.publication-actions a + a::before {
+  content: "/";
+  margin: 0 0.7rem 0 0.25rem;
+  color: rgba(24, 34, 44, 0.24);
+}
+
+.publication-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 2.6rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.publication-main {
+  min-width: 0;
+}
+
+.publication-side-panel {
+  position: sticky;
+  top: 5rem;
+  display: grid;
+  gap: 1.7rem;
+  align-self: start;
+}
+
+.publication-side-group {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.publication-side-heading {
+  margin: 0 0 0.75rem;
+  color: var(--pm-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.publication-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 0;
+  padding: 0;
+  border-top: 1px solid var(--pm-line);
+  border-bottom: 1px solid var(--pm-line);
+}
+
+.publication-stat {
+  min-height: auto;
+  padding: 0.95rem 0;
+  border: 0;
+  border-top: 1px solid var(--pm-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.publication-stat:first-child {
+  border-top: 0;
+}
+
+.publication-stat strong {
+  display: block;
+  color: var(--pm-ink);
+  font-family: Georgia, "Palatino Linotype", "Noto Serif SC", serif;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.publication-stat span {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--pm-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.publication-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.8rem;
+}
+
+.publication-filter {
+  padding: 0.34rem 0.62rem;
+  border: 1px solid var(--pm-line);
+  border-radius: 999px;
+  background: transparent;
+  color: #55636d;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.publication-filter:hover,
+.publication-filter[aria-pressed="true"] {
+  border-color: rgba(93, 112, 121, 0.24);
+  background: rgba(93, 112, 121, 0.08);
+  color: var(--pm-ink);
+}
+
+.publication-filter-count {
+  margin-top: 0.8rem;
+  color: #7a858d;
+  font-size: 0.9rem;
+}
+
+.publication-year-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.65rem;
+  margin-top: 0.8rem;
+}
+
+.publication-year-nav a {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--pm-accent);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.publication-year-nav a:hover {
+  color: var(--pm-ink);
+  text-decoration: none;
+}
+
+.year-heading {
+  margin: 2rem 0 0;
+  scroll-margin-top: 4.8rem;
+}
+
+.publication-page .publication-main > p.year-heading > strong {
+  display: inline-block;
+  margin-top: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--pm-ink);
+  font-family: Georgia, "Palatino Linotype", "Noto Serif SC", serif;
+  font-size: 1.32rem;
+}
+
+.publication-page .publication-main > ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.65rem;
+}
+
+.publication-page .publication-main > ul > li {
+  margin: 0;
+  padding: 1rem 0 1.05rem;
+  border-top: 1px solid var(--pm-line);
+  border-left: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #415365;
+  line-height: 1.78;
+}
+
+.publication-page .publication-main > ul:first-of-type > li:first-child {
+  border-top: 0;
+  background: transparent;
+}
+
+.publication-page .publication-main > ul > li strong {
+  color: var(--pm-ink);
+  overflow-wrap: anywhere;
+}
+
+.publication-page .publication-main > ul > li span {
+  color: var(--pm-muted);
+}
+
+.publication-page .publication-main > ul > li .author-me {
+  color: var(--pm-ink);
+  font-weight: 700;
+}
+
+.publication-page .publication-main > ul > li font {
+  display: inline;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--pm-accent);
+  font-size: 0.96em;
+}
+
+.award-inline {
+  margin-left: 0.35rem;
+}
+
+.award-badge {
+  display: inline;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #8f8a82;
+  font-size: 0.9em;
+  font-weight: 600;
+  line-height: inherit;
+}
+
+.award-badge::before {
+  content: "•";
+  margin-right: 0.22rem;
+}
+
+.award-text {
+  color: #8f8a82;
+  font-weight: 600;
+}
+
+.publication-hidden {
+  display: none !important;
+}
+
+.publication-page p[style*="text-align: center"] {
+  margin-top: 2.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--pm-line);
+}
+
+.publication-page p[style*="text-align: center"] img {
+  max-width: 100%;
+  border-radius: 14px;
+}
+
+@media (max-width: 980px) {
+  .publication-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .publication-side-panel {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .publication-page .theme-default-content.content__default {
+    padding: 2rem 1.1rem 4.3rem;
+  }
+
+  .publication-hero {
+    padding-bottom: 2rem;
+  }
+
+  .publication-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .publication-actions a + a::before {
+    margin-right: 0.45rem;
+  }
+
+  .publication-filters,
+  .publication-year-nav {
+    flex-wrap: nowrap;
+    margin-left: -1.1rem;
+    margin-right: -1.1rem;
+    padding: 0 1.1rem 0.15rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .publication-filter,
+  .publication-year-nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+}
+    </style>
+
     <meta name="description" content="Publications by Yeting Li in software and system security, vulnerability discovery, fuzzing, program analysis, and software engineering.">
     <style type="text/css">.home {
   padding: 3.6rem 2rem 0;
@@ -1994,19 +2391,33 @@ a.sidebar-link.active {
 
             <div class="theme-default-content content__default">
                 <section class="publication-hero">
-                    <h1 id="publications">Publications / 发表论文</h1>
-                    <p class="section-lead">Peer-reviewed publications in software and system security, vulnerability discovery, fuzzing, program analysis, ReDoS defense, and software engineering.</p>
+                    <h1 id="publications">Publications</h1>
+                    <p class="section-lead">Peer-reviewed publications in software and system security, vulnerability discovery, fuzzing, program analysis, ReDoS defense, and software engineering. The list is organized in reverse chronological order.</p>
                     <div class="publication-actions">
-                        <a href="https://scholar.google.com/citations?user=ESEQOMMAAAAJ" class="primary">Google Scholar</a>
+                        <a href="index.html" class="primary">Homepage</a>
+                        <a href="https://scholar.google.com/citations?user=ESEQOMMAAAAJ">Google Scholar</a>
                         <a href="https://dblp.uni-trier.de/pid/185/7953.html">DBLP</a>
-                        <a href="index.html#selected-publications">Homepage Publications</a>
-                        <a href="index.html#prospective-students">Prospective Students</a>
+                        <a href="index.html#selected-publications">Selected Publications</a>
+                        <a href="index.html#prospective-students">Openings</a>
                     </div>
                 </section>
                 <div class="publication-layout">
                 <div class="publication-main">
                                   <p id="year-2026" class="year-heading"><strong>2026</strong></p>
                 <ul>
+<li><strong>iDetector: Unraveling and Automating the Detection of Modern Java Web Injection Vulnerabilities</strong>
+    <br>Xingchen Chen, <span class="author-me">Yeting Li</span>, Ze Jin, Yaokang Tan, Xianglong Li, Baizhu Wang, Mengjun Zhang, Qixu Liu:
+    ACM Transactions on Software Engineering and Methodology (<font>TOSEM 2026, CCF-A</font>)
+    <br><span>Automating the detection of modern Java web injection vulnerabilities.</span>
+</li>
+
+<li><strong>QLAuto: A Static Application Security Testing Approach Based on Intelligent Extraction of Vulnerability Patterns</strong>
+    <br>Yuhang Zhang, He Su, Feng Li, Yifan Hu, Wenbo Hu, <span class="author-me">Yeting Li</span>, Aihua Piao, Wei Huo:
+    信息安全学报（中文，CCF T2）
+    <br><span>张宇航, 苏赫, 李丰, 胡一凡, 胡文泊, 李页霆, 朴爱花, 霍玮. QLAuto：基于漏洞模式智能提炼的静态应用安全测试方法[J]. 信息安全学报.</span>
+    <br><span>Static application security testing driven by intelligent extraction of vulnerability patterns.</span>
+</li>
+
 <li><strong>Themis: Bridging Documentation and Code to Uncover Access Control Vulnerabilities in GitLab</strong>
     <br>Yujie Sun, Huina Chao, <span class="author-me">Yeting Li*</span>, Xinyi Wang, Yiming Liu, Jialun Cao, Qin Mai, Hengyu Yang, Feng Li, Wei Huo, Baoxu Liu:
     2026 IEEE International Conference on Acoustics, Speech and Signal Processing (<font>ICASSP 2026, CCF-B</font>)
@@ -2265,8 +2676,8 @@ a.sidebar-link.active {
                         <div class="publication-stats">
                             <div class="publication-stat"><strong data-publication-total>...</strong><span>peer-reviewed papers listed in reverse chronological order</span></div>
                             <div class="publication-stat"><strong data-publication-lead>...</strong><span>first-author or corresponding-author publications</span></div>
-                            <div class="publication-stat"><strong>Top venues</strong><span>IEEE S&amp;P, USENIX Security, NDSS, EuroSys, ICSE, ASE, ISSTA</span></div>
-                            <div class="publication-stat"><strong>Awards</strong><span>ICSE 2024 Distinguished Paper; USENIX Security 2025 Honorable Mention</span></div>
+                            <div class="publication-stat"><strong>Top-tier</strong><span>IEEE S&amp;P, USENIX Security, NDSS, EuroSys, ICSE, ASE, ISSTA</span></div>
+                            <div class="publication-stat"><strong>Highlights</strong><span>ICSE 2024 Distinguished Paper; USENIX Security 2025 Honorable Mention</span></div>
                         </div>
                     </div>
                     <div class="publication-side-group">
@@ -2298,7 +2709,7 @@ a.sidebar-link.active {
                 <p style="text-align: center"> <a href="https://clustrmaps.com/site/1byq2"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=3b1cfNi9_oAUNSe_b-HSITTmf5ldEDof933C7ocQG5Y&cl=ffffff" /></a></p>
             </div>
             <footer class="page-edit"><!---->
-              <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">04/27/2026</span>
+              <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">05/24/2026</span>
               </div>
             </footer> <!----> </main>
     </div>
@@ -2306,6 +2717,7 @@ a.sidebar-link.active {
 </div>
 
 
+<script src="publication-stats.js"></script>
 <script>
 (function () {
   var content = document.querySelector('.publication-page .theme-default-content');
@@ -2319,6 +2731,7 @@ a.sidebar-link.active {
   var yearHeadings = Array.prototype.slice.call(document.querySelectorAll('.year-heading'));
   var totalStatTargets = Array.prototype.slice.call(document.querySelectorAll('[data-publication-total]'));
   var leadStatTargets = Array.prototype.slice.call(document.querySelectorAll('[data-publication-lead]'));
+  var publicationStats = window.PublicationStats;
   var topSecurityPattern = /(USENIX Security|Network and Distributed System Security|NDSS|IEEE Symposium on\s+Security and Privacy|\bS&P\b|ACM CCS|\bCCS\b)/i;
 
   function getText(item) {
@@ -2333,14 +2746,21 @@ a.sidebar-link.active {
   }
 
   function isLeadOrCorresponding(item) {
+    if (publicationStats && typeof publicationStats.isLeadOrCorrespondingItemHtml === 'function') {
+      return publicationStats.isLeadOrCorrespondingItemHtml(item.innerHTML || '');
+    }
     var text = getText(item);
     return text.indexOf('Yeting Li*') !== -1 || getAuthorLine(item).indexOf('Yeting Li') === 0;
   }
 
   function updateSummaryStats() {
-    var leadCount = items.filter(isLeadOrCorresponding).length;
+    var stats = publicationStats && typeof publicationStats.extractPublicationStatsFromHtml === 'function'
+      ? publicationStats.extractPublicationStatsFromHtml('<div class="publication-main">' + content.innerHTML + '</div>')
+      : null;
+    var leadCount = stats ? stats.lead : items.filter(isLeadOrCorresponding).length;
+    var totalCount = stats ? stats.total : items.length;
     totalStatTargets.forEach(function (target) {
-      target.textContent = String(items.length);
+      target.textContent = String(totalCount);
     });
     leadStatTargets.forEach(function (target) {
       target.textContent = String(leadCount);

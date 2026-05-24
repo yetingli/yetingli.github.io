@@ -2276,6 +2276,760 @@ html {
   }
 }
     </style>
+
+<style id="pm-redesign">
+:root {
+  --pm-bg: #fbfaf7;
+  --pm-bg-soft: #f6f4ef;
+  --pm-ink: #18222c;
+  --pm-muted: #69757f;
+  --pm-accent: #5d7079;
+  --pm-accent-soft: #8f8a82;
+  --pm-line: rgba(24, 34, 44, 0.1);
+  --pm-line-strong: rgba(24, 34, 44, 0.18);
+}
+
+html,
+body {
+  background: linear-gradient(180deg, #fdfcf9 0%, var(--pm-bg) 100%);
+  color: var(--pm-ink);
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+body {
+  line-height: 1.72;
+}
+
+.home-page .page,
+.home-page .theme-container {
+  background: transparent;
+}
+
+.home-page .theme-default-content.content__default {
+  max-width: 1020px;
+  padding: 3.2rem 2rem 5.5rem;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(10px);
+  background: rgba(253, 252, 249, 0.9);
+  border-bottom: 1px solid var(--pm-line);
+  box-shadow: 0 4px 18px rgba(24, 34, 44, 0.03);
+}
+
+.site-name {
+  font-family: Georgia, "Palatino Linotype", "Noto Serif SC", serif;
+  letter-spacing: 0.03em;
+  color: var(--pm-ink);
+}
+
+.nav-item > a:not(.external),
+.sidebar .nav-item > a:not(.external) {
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-item > a:not(.external):hover,
+.nav-item > a:not(.external).router-link-active,
+.nav-item > a:not(.external).router-link-exact-active {
+  background: rgba(93, 112, 121, 0.06);
+  color: var(--pm-accent);
+}
+
+.pm-home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 2.4rem;
+  align-items: start;
+  padding: 0.2rem 0 2.6rem;
+  border-bottom: 1px solid var(--pm-line);
+}
+
+.pm-eyebrow,
+.pm-section-kicker,
+.pm-card-head,
+.pm-focus-label,
+.publication-kicker {
+  display: inline-block;
+  color: var(--pm-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.pm-home-hero h1 {
+  margin: 0.55rem 0 0;
+  font-family: Georgia, "Palatino Linotype", "Noto Serif SC", serif;
+  font-size: clamp(2.5rem, 3.5vw, 3.7rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  color: var(--pm-ink);
+}
+
+.pm-home-hero h1 span {
+  display: inline;
+  margin-left: 0.55rem;
+  color: rgba(24, 34, 44, 0.7);
+  font-size: clamp(1.12rem, 1.5vw, 1.38rem);
+  letter-spacing: 0.04em;
+}
+
+.pm-subtitle {
+  max-width: 680px;
+  margin: 0.9rem 0 0;
+  color: #44515b;
+  font-size: 0.98rem;
+  font-weight: 500;
+}
+
+.pm-summary {
+  max-width: 700px;
+  margin: 0.95rem 0 0;
+  color: var(--pm-muted);
+  font-size: 0.99rem;
+}
+
+.pm-tag-row,
+.pm-hero-actions,
+.pm-quick-links,
+.publication-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.pm-tag-row {
+  margin-top: 1rem;
+}
+
+.pm-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  border-bottom: 0;
+  color: #55636d;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.pm-tag + .pm-tag::before {
+  content: "/";
+  margin: 0 0.7rem 0 0.15rem;
+  color: rgba(24, 34, 44, 0.24);
+}
+
+.pm-hero-actions {
+  margin-top: 0.95rem;
+}
+
+.pm-hero-actions a,
+.publication-actions a {
+  display: inline;
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--pm-accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pm-hero-actions a:hover,
+.publication-actions a:hover {
+  color: var(--pm-ink);
+  text-decoration: none;
+}
+
+.pm-hero-actions a.primary,
+.publication-actions a.primary {
+  color: var(--pm-ink);
+}
+
+.pm-hero-actions a + a::before,
+.publication-actions a + a::before {
+  content: "/";
+  margin: 0 0.7rem 0 0.25rem;
+  color: rgba(24, 34, 44, 0.24);
+}
+
+.pm-mini-note {
+  max-width: 640px;
+  margin-top: 0.95rem;
+  color: #7a858d;
+  font-size: 0.88rem;
+}
+
+.pm-hero-side {
+  min-width: 0;
+}
+
+.pm-portrait-card,
+.pm-impact-band,
+.pm-story-card,
+.pm-focus-card,
+.publication-stat,
+#selected-publications > ul.publication-highlight-list > li,
+.pm-recruit-card,
+.pm-service-card,
+.pm-award-card,
+.pm-footer-note {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.pm-portrait-card {
+  padding: 0;
+}
+
+.pm-portrait-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(24, 34, 44, 0.07);
+}
+
+.pm-portrait-meta {
+  margin-top: 0.75rem;
+}
+
+.pm-portrait-meta span,
+.pm-contact-pill {
+  color: var(--pm-muted);
+}
+
+.pm-contact-pill {
+  display: inline-flex;
+  margin-top: 0;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid rgba(24, 34, 44, 0.14);
+  font-size: 0.88rem;
+}
+
+.pm-quick-links {
+  margin-top: 0.55rem;
+  gap: 0.35rem 0.85rem;
+}
+
+.pm-quick-links a {
+  color: #586670;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.pm-impact-band {
+  margin-top: 1.35rem;
+  padding: 1.35rem 0 1.5rem;
+  border-bottom: 1px solid var(--pm-line);
+}
+
+.pm-impact-grid,
+.publication-stats,
+.pm-story-grid,
+.pm-focus-grid,
+.pm-dual-grid,
+.pm-award-grid,
+.pm-service-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.pm-impact-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 0.95rem;
+}
+
+.pm-impact-item,
+.publication-stat {
+  padding: 0 1rem;
+  border-left: 1px solid var(--pm-line);
+}
+
+.pm-impact-item:first-child,
+.publication-stat:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.pm-impact-item strong,
+.publication-stat strong {
+  display: block;
+  color: var(--pm-ink);
+  font-family: Georgia, "Palatino Linotype", "Noto Serif SC", serif;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.pm-impact-item span,
+.publication-stat span {
+  display: block;
+  margin-top: 0.38rem;
+  color: var(--pm-muted);
+  font-size: 0.92rem;
+}
+
+.pm-impact-note {
+  max-width: 780px;
+  margin: 1rem 0 0;
+  color: #75818a;
+  font-size: 0.93rem;
+}
+
+.pm-section {
+  margin-top: 4.2rem;
+  padding: 2rem 0 0;
+  border-top: 1px solid var(--pm-line);
+}
+
+.pm-section-header {
+  max-width: 820px;
+}
+
+.pm-section-header h2,
+.home-section h2 {
+  margin: 0.7rem 0 0;
+  padding: 0;
+  border: 0;
+  font-family: Georgia, "Palatino Linotype", "Noto Serif SC", serif;
+  font-size: clamp(1.85rem, 2.4vw, 2.55rem);
+  line-height: 1.08;
+  color: var(--pm-ink);
+}
+
+.section-lead {
+  max-width: 760px;
+  margin-top: 0.8rem;
+  color: var(--pm-muted);
+  font-size: 1rem;
+  line-height: 1.82;
+}
+
+.pm-story-grid {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1.15rem;
+}
+
+.pm-story-card,
+.pm-focus-card,
+.pm-recruit-card,
+.pm-service-card,
+.pm-award-card {
+  padding: 0;
+}
+
+.pm-focus-card h3,
+.pm-recruit-card h3,
+.pm-service-card h3,
+.pm-award-card h3 {
+  margin: 0;
+  color: var(--pm-ink);
+  font-size: 1.05rem;
+}
+
+.pm-story-card p,
+.pm-focus-card p,
+.pm-recruit-card p,
+.pm-service-card p,
+.pm-award-card p {
+  margin: 0.5rem 0 0;
+  color: var(--pm-muted);
+}
+
+.pm-story-card + .pm-story-card {
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--pm-line);
+}
+
+.pm-story-card p {
+  margin-top: 0;
+}
+
+.pm-inline-stat {
+  color: var(--pm-ink);
+  font-weight: 700;
+}
+
+.pm-focus-grid {
+  grid-template-columns: 1fr;
+  gap: 1.45rem;
+  margin-top: 1.55rem;
+}
+
+.pm-focus-card {
+  padding-top: 1rem;
+  border-top: 1px solid var(--pm-line);
+}
+
+.pm-focus-card:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.pm-focus-label {
+  margin-bottom: 0.45rem;
+}
+
+.publication-section-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.2rem 1.8rem;
+}
+
+.publication-section-top > div:first-child {
+  flex: 1 1 560px;
+}
+
+.publication-stats {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 1.6rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--pm-line);
+  border-bottom: 1px solid var(--pm-line);
+}
+
+.publication-kicker {
+  margin: 1.5rem 0 0;
+}
+
+.publication-highlight-list {
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 0.7rem;
+}
+
+#selected-publications > ul.publication-highlight-list > li {
+  margin: 0;
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--pm-line);
+  line-height: 1.78;
+}
+
+#selected-publications > ul.publication-highlight-list > li:first-child {
+  border-top: 0;
+}
+
+#selected-publications > ul > li strong {
+  color: var(--pm-ink);
+}
+
+#selected-publications > ul > li span,
+#selected-publications > ul > li {
+  color: var(--pm-muted);
+}
+
+#selected-publications > ul > li .author-me {
+  color: var(--pm-ink);
+  font-weight: 700;
+}
+
+#selected-publications > ul > li font {
+  display: inline;
+  margin-top: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--pm-accent);
+  font-size: 0.96em;
+}
+
+.award-inline {
+  margin-left: 0.35rem;
+}
+
+.award-badge {
+  margin-right: 0.35rem;
+  color: var(--pm-accent-soft);
+}
+
+.award-badge::before {
+  content: "\2022";
+  margin-right: 0.22rem;
+}
+
+.award-text {
+  color: var(--pm-accent-soft);
+}
+
+.pm-dual-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.pm-list,
+.service-list,
+.compact-list {
+  margin: 0.85rem 0 0;
+  padding-left: 1.15rem;
+  color: var(--pm-muted);
+}
+
+.pm-list li + li,
+.service-list li + li,
+.compact-list li + li {
+  margin-top: 0.45rem;
+}
+
+.pm-inline-note {
+  margin-top: 0.95rem;
+  color: #75818a;
+  font-size: 0.94rem;
+}
+
+.pm-service-grid,
+.pm-award-grid {
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+  margin-top: 1.4rem;
+}
+
+.pm-service-card,
+.pm-award-card {
+  padding-top: 1rem;
+  border-top: 1px solid var(--pm-line);
+}
+
+.pm-service-card:first-child,
+.pm-award-card:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.pm-footer-note {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--pm-line);
+  text-align: center;
+}
+
+.pm-footer-note img {
+  max-width: 100%;
+  border-radius: 14px;
+}
+
+.home-page a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+.pm-focus-grid {
+  display: block;
+  margin-top: 1.45rem;
+}
+
+.pm-focus-card {
+  padding-top: 0.95rem;
+  border-top: 1px solid var(--pm-line);
+  line-height: 1.88;
+}
+
+.pm-focus-card h3 {
+  display: inline;
+  font-size: 1rem;
+}
+
+.pm-focus-card h3::after {
+  content: ". ";
+}
+
+.pm-focus-card p {
+  display: inline;
+  margin: 0;
+}
+
+.pm-focus-label {
+  display: none;
+}
+
+.publication-actions {
+  gap: 0.45rem 1rem;
+}
+
+.publication-actions a {
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--pm-accent);
+}
+
+.publication-actions a:hover,
+.publication-actions a.primary,
+.publication-actions a.primary:hover {
+  background: transparent;
+  border: 0;
+  color: var(--pm-ink);
+}
+
+.pm-publication-year {
+  margin-top: 1.7rem;
+}
+
+.pm-publication-year + .pm-publication-year {
+  margin-top: 2rem;
+}
+
+.pm-publication-year h3 {
+  margin: 0;
+  font-family: Georgia, "Palatino Linotype", "Noto Serif SC", serif;
+  font-size: 1.22rem;
+  color: var(--pm-ink);
+}
+
+.pm-publication-year-list {
+  margin: 0.7rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pm-publication-year-list li {
+  padding: 1rem 0;
+  border-top: 1px solid var(--pm-line);
+}
+
+.pm-publication-year-list li:first-child {
+  border-top: 0;
+}
+
+.pm-paper-title {
+  color: var(--pm-ink);
+  font-weight: 700;
+}
+
+.pm-paper-authors,
+.pm-paper-meta,
+.pm-paper-note {
+  margin-top: 0.32rem;
+  color: var(--pm-muted);
+}
+
+.pm-paper-meta {
+  color: #55636d;
+}
+
+.pm-paper-note + .pm-paper-note {
+  margin-top: 0.18rem;
+}
+
+.pm-award-grid {
+  display: block;
+  margin-top: 1.35rem;
+}
+
+.pm-award-card {
+  padding-top: 0.95rem;
+  border-top: 1px solid var(--pm-line);
+  line-height: 1.88;
+}
+
+.pm-award-card h3 {
+  display: inline;
+  font-size: 1rem;
+}
+
+.pm-award-card h3::after {
+  content: ". ";
+}
+
+.pm-award-card p {
+  display: inline;
+  margin: 0;
+}
+
+
+@media (max-width: 960px) {
+  .pm-home-hero,
+  .pm-dual-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pm-impact-grid,
+  .publication-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 0;
+  }
+
+  .pm-story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pm-hero-side {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-page .theme-default-content.content__default {
+    padding: 2rem 1.1rem 4.2rem;
+  }
+
+  .pm-home-hero {
+    gap: 1.45rem;
+    padding-bottom: 2.1rem;
+  }
+
+  .pm-home-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .pm-hero-actions a,
+  .publication-actions a {
+    width: auto;
+  }
+
+  .pm-impact-grid,
+  .publication-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .pm-impact-item,
+  .publication-stat {
+    padding: 0.35rem 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--pm-line);
+  }
+
+  .pm-impact-item:first-child,
+  .publication-stat:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .pm-section {
+    margin-top: 3.3rem;
+    padding-top: 1.7rem;
+  }
+
+  .publication-actions,
+  .pm-quick-links,
+  .pm-tag-row,
+  .pm-hero-actions {
+    gap: 0.55rem;
+  }
+
+  .pm-tag + .pm-tag::before,
+  .pm-hero-actions a + a::before,
+  .publication-actions a + a::before {
+    margin-right: 0.45rem;
+  }
+}
+</style>
+
 </head>
 <body>
 <div id="app">
@@ -2297,14 +3051,20 @@ html {
                                              class="nav-link router-link-exact-active router-link-active">
                         Home
                     </a></div>
+                    <div class="nav-item"><a href="#short-bio" class="nav-link">
+                        About
+                    </a></div>
+                    <div class="nav-item"><a href="#research-interests" class="nav-link">
+                        Research
+                    </a></div>
                     <div class="nav-item"><a href="#selected-publications" class="nav-link">
                         Publications
                     </a></div>
-                    <div class="nav-item"><a href="#professional-services" class="nav-link">
-                        Services
-                    </a></div>
                     <div class="nav-item"><a href="#prospective-students" class="nav-link">
                         Students
+                    </a></div>
+                    <div class="nav-item"><a href="#professional-services" class="nav-link">
+                        Services
                     </a></div>
                     <div class="nav-item"><a href="https://github.com/yetingli" target="_blank"
                                              rel="noopener noreferrer" class="nav-link external">
@@ -2325,14 +3085,20 @@ html {
                                          class="nav-link router-link-exact-active router-link-active">
                     Home
                 </a></div>
+                <div class="nav-item"><a href="#short-bio" class="nav-link">
+                    About
+                </a></div>
+                <div class="nav-item"><a href="#research-interests" class="nav-link">
+                    Research
+                </a></div>
                 <div class="nav-item"><a href="#selected-publications" class="nav-link">
                     Publications
                 </a></div>
-                <div class="nav-item"><a href="#professional-services" class="nav-link">
-                    Services
-                </a></div>
                 <div class="nav-item"><a href="#prospective-students" class="nav-link">
                     Students
+                </a></div>
+                <div class="nav-item"><a href="#professional-services" class="nav-link">
+                    Services
                 </a></div>
                 <div class="nav-item"><a href="https://github.com/yetingli" target="_blank" rel="noopener noreferrer"
                                          class="nav-link external">
@@ -2346,228 +3112,246 @@ html {
                             class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <!----> </aside>
         <main class="page">
             <div class="theme-default-content content__default">
-                <section class="home-hero">
-                <div class="profile">
-                    <div class="image"><img src="profile.png" alt=""></div>
-                    <div class="info">
-                        <div class="name">
-                            <span>Yeting Li</span>
-                            <span class="name-divider">|</span>
-                            <span class="name-alt">李页霆</span>
+                <section class="pm-home-hero">
+                    <div class="pm-hero-copy">
+                        <span class="pm-eyebrow">Software &amp; System Security / &#36719;&#20214;&#19982;&#31995;&#32479;&#23433;&#20840;</span>
+                        <h1>Yeting Li <span>&#26446;&#39029;&#38662;</span></h1>
+                        <p class="pm-subtitle">Associate Professor &middot; Institute of Information Engineering, Chinese Academy of Sciences</p>
+                        <p class="pm-summary">I work at the intersection of software security, systems, and AI, with a focus on intelligent vulnerability discovery, automated exploit generation, program analysis, and real-world security evaluation.</p>
+                        <div class="pm-tag-row">
+                            <span class="pm-tag">Software Security</span>
+                            <span class="pm-tag">Program Analysis</span>
+                            <span class="pm-tag">AI for Security</span>
                         </div>
-                        <div class="bio"><p><span>Associate Professor at IIE, CAS</span><span class="bio-divider">|</span><span class="bio-alt">中国科学院信息工程研究所副研究员</span></p></div>
-                        <p class="hero-summary">I work on software and system security, with a focus on AI-driven vulnerability discovery, exploit generation, and program analysis.</p>
-                        <div class="tag-list">
-                            <span>Software Security</span>
-                            <span>AI for Security</span>
-                            <span>Vulnerability Discovery</span>
-                            <span>Exploit Generation</span>
-                            <span>Program Analysis</span>
+                        <div class="pm-hero-actions">
+                            <a href="publication.html" class="primary">View Publications</a>
+                            <a href="mailto:liyeting@iie.ac.cn">Contact</a>
                         </div>
-                        <div class="hero-actions">
-                            <a href="publication.html" class="primary">Publications</a>
-                            <a href="#prospective-students" class="secondary">Join the Group</a>
-                            <a href="https://people.ucas.edu.cn/~yetingli">UCAS Profile</a>
-                            <a href="mailto:liyeting@iie.ac.cn">Email</a>
-                        </div>
-                        <div class="socials"></div>
-                        <div class="contact">
-                            <div title="Contact me" class="email">liyeting (at) iie (dot) ac (dot) cn</div>
-                        </div> <!----></div>
-                </div>
-                <div class="hero-aside">
-                    <div class="hero-note">
-                        <span class="hero-note-label">Openings / 招生</span>
-                        <p>Recruiting master's students, PhD students, postdoctoral researchers, and research interns interested in AI-driven vulnerability discovery, automated exploit generation, program analysis, fuzzing, and software/system security. 欢迎对智能化漏洞挖掘、自动化漏洞利用、程序分析、模糊测试与软件系统安全感兴趣的同学联系。</p>
+                        <p class="pm-mini-note">Recent work appears in EuroSys 2026, NDSS 2026, TOSEM 2026, and USENIX Security 2025, with paper recognitions at ICSE 2024 and USENIX Security 2025.</p>
                     </div>
-                    <div class="hero-recognition">
-                        <span class="hero-note-label">Recent Recognition / 近期亮点</span>
-                        <ul class="hero-recognition-list">
-                            <li>ICSE 2024 ACM SIGSOFT Distinguished Paper Award</li>
-                            <li>USENIX Security 2025 Distinguished Paper Honorable Mention</li>
-                        </ul>
-                    </div>
-                </div>
-                </section>
-
-                <section class="home-section" id="short-bio">
-                    <h2>About / 个人简介</h2>
-                    <div class="bilingual-grid">
-                        <div class="info-panel">
-                            <h3>English</h3>
-                            <p>Yeting Li is an Associate Professor at the Institute of Information Engineering, Chinese Academy of Sciences. His research focuses on software and system security, especially intelligent vulnerability discovery and automated exploitation. He has published 40+ papers in top security, systems, and software engineering venues, including IEEE S&amp;P, USENIX Security, NDSS, EuroSys, ICSE, ASE, and ISSTA, with 21 papers as first author or corresponding author. Recent work has been accepted by EuroSys 2026 and NDSS 2026. His work has received the ICSE 2024 ACM SIGSOFT Distinguished Paper Award and a USENIX Security 2025 Distinguished Paper Honorable Mention.</p>
-                        </div>
-                        <div class="info-panel">
-                            <h3>中文</h3>
-                            <p>李页霆，中国科学院信息工程研究所副研究员，长期从事软件与系统安全研究，主要聚焦智能化漏洞挖掘与自动化利用技术。围绕漏洞检测、利用生成与安全评测等方向，在网络安全、系统与软件工程领域国际顶级会议发表论文40余篇，其中以第一作者或通讯作者发表21篇，近年成果包括EuroSys 2026、NDSS 2026、USENIX Security 2025等。相关研究曾获得ICSE 2024 ACM SIGSOFT Distinguished Paper Award，并获USENIX Security 2025 Distinguished Paper Honorable Mention。团队累计发现并报告CVE漏洞300余个，相关技术系统已在国家级安全评测与攻防任务中得到应用。</p>
-                        </div>
+                    <div class="pm-hero-side">
+                        <article class="pm-portrait-card">
+                            <img src="IMG_202406126002_650x945_%E5%89%AF%E6%9C%AC.png" alt="Portrait of Yeting Li">
+                            <div class="pm-portrait-meta">
+                                <div class="pm-contact-pill">liyeting (at) iie (dot) ac (dot) cn</div>
+                                <div class="pm-quick-links">
+                                    <a href="https://people.ucas.edu.cn/~yetingli">UCAS</a>
+                                    <a href="https://github.com/yetingli">GitHub</a>
+                                    <a href="https://scholar.google.com/citations?user=ESEQOMMAAAAJ">Scholar</a>
+                                    <a href="https://dblp.uni-trier.de/pid/185/7953.html">DBLP</a>
+                                </div>
+                            </div>
+                        </article>
                     </div>
                 </section>
 
-                <section class="home-section" id="research-interests">
-                    <h2>Research Focus / 研究方向</h2>
-                    <div class="focus-grid">
-                        <div class="focus-item">
-                            <h3>AI-driven Vulnerability Discovery</h3>
-                            <p>Combining program analysis, security testing, and learning-based techniques to discover real vulnerabilities. 结合程序分析、安全测试与智能化方法发现真实漏洞。</p>
-                        </div>
-                        <div class="focus-item">
-                            <h3>Exploit Generation</h3>
-                            <p>Building systematic methods from vulnerability detection to automated exploit generation and validation. 构建从漏洞检测到自动化利用生成与验证的系统化方法。</p>
-                        </div>
-                        <div class="focus-item">
-                            <h3>Software and System Security</h3>
-                            <p>Studying open-source ecosystems, embedded systems, protocol implementations, and real-world offensive and defensive settings. 面向开源生态、嵌入式系统、协议实现与真实攻防场景。</p>
-                        </div>
-                        <div class="focus-item">
-                            <h3>Fuzzing and Program Analysis</h3>
-                            <p>Developing testing and analysis techniques for complex software, protocols, firmware, and system components. 面向复杂软件、协议、固件与系统组件开展测试和分析。</p>
-                        </div>
-                        <div class="focus-item">
-                            <h3>Binary and Firmware Security</h3>
-                            <p>Finding vulnerabilities in low-level binaries and embedded firmware through scalable analysis and rehosting. 关注二进制程序与嵌入式固件中的真实安全缺陷。</p>
-                        </div>
-                        <div class="focus-item">
-                            <h3>LLM for Security</h3>
-                            <p>Exploring how large language models can support vulnerability discovery, security evaluation, and code analysis. 探索大模型在漏洞挖掘、安全评测与代码分析中的应用。</p>
-                        </div>
+                <section class="pm-impact-band" aria-label="Academic overview">
+                    <span class="pm-card-head">Impact / &#23398;&#26415;&#27010;&#35272;</span>
+                    <div class="pm-impact-grid">
+                        <div class="pm-impact-item"><strong>43</strong><span>Peer-reviewed papers</span></div>
+                        <div class="pm-impact-item"><strong>21</strong><span>First/corresponding-author papers</span></div>
+                        <div class="pm-impact-item"><strong>300+</strong><span>Reported CVEs and security findings</span></div>
+                        <div class="pm-impact-item"><strong>Top-tier</strong><span>S&amp;P, USENIX Security, NDSS, EuroSys, ICSE, ASE, ISSTA</span></div>
+                    </div>
+                    <p class="pm-impact-note">Selected recognitions include the ICSE 2024 ACM SIGSOFT Distinguished Paper Award and the USENIX Security 2025 Distinguished Paper Honorable Mention.</p>
+                </section>
+
+                <section class="home-section pm-section" id="short-bio">
+                    <div class="pm-section-header">
+                        <span class="pm-section-kicker">About</span>
+                        <h2>Biography</h2>
+                        <p class="section-lead">A brief academic biography and research overview.</p>
+                    </div>
+                    <div class="pm-story-grid">
+                        <article class="pm-story-card">
+                            <p>Yeting Li is an Associate Professor at the Institute of Information Engineering, Chinese Academy of Sciences. His research centers on software and system security, especially intelligent vulnerability discovery, automated exploitation, program analysis, fuzzing, and security evaluation. He has published <strong class="pm-inline-stat">43</strong> peer-reviewed papers in venues including IEEE S&amp;P, USENIX Security, NDSS, EuroSys, ICSE, ASE, and ISSTA, with <strong class="pm-inline-stat">21</strong> papers as first author or corresponding author.</p>
+                        </article>
+                        <article class="pm-story-card">
+                            <p>&#26446;&#39029;&#38662;&#65292;&#20013;&#22269;&#31185;&#23398;&#38498;&#20449;&#24687;&#24037;&#31243;&#30740;&#31350;&#25152;&#21103;&#30740;&#31350;&#21592;&#65292;&#38271;&#26399;&#20174;&#20107;&#36719;&#20214;&#19982;&#31995;&#32479;&#23433;&#20840;&#30740;&#31350;&#65292;&#37325;&#28857;&#20851;&#27880;&#26234;&#33021;&#21270;&#28431;&#27934;&#25366;&#25496;&#12289;&#33258;&#21160;&#21270;&#21033;&#29992;&#29983;&#25104;&#12289;&#31243;&#24207;&#20998;&#26512;&#12289;&#27169;&#31946;&#27979;&#35797;&#19982;&#23433;&#20840;&#35780;&#27979;&#12290;&#22312; IEEE S&amp;P&#12289;USENIX Security&#12289;NDSS&#12289;EuroSys&#12289;ICSE&#12289;ASE&#12289;ISSTA &#31561;&#22269;&#38469;&#39640;&#27700;&#24179;&#20250;&#35758;&#21644;&#26399;&#21002;&#21457;&#34920;&#21516;&#34892;&#35780;&#23457;&#35770;&#25991; <strong class="pm-inline-stat">43</strong> &#31687;&#65292;&#20854;&#20013; <strong class="pm-inline-stat">21</strong> &#31687;&#20026;&#31532;&#19968;&#20316;&#32773;&#25110;&#36890;&#35759;&#20316;&#32773;&#12290;</p>
+                        </article>
                     </div>
                 </section>
 
-                <section class="home-section recruiting-section" id="prospective-students">
-                    <h2>Prospective Students / 招生信息</h2>
-                    <p class="section-lead">Our group is continuously recruiting motivated master's students, PhD students, and postdoctoral researchers who are interested in software and system security. 课题组长期招收硕士生、博士生和博士后，欢迎对软件与系统安全、人工智能安全分析、漏洞挖掘与利用感兴趣的同学加入。</p>
-                    <div class="advantage-grid">
-                        <div class="advantage-item">
-                            <h3>Research Directions / 研究方向</h3>
-                            <p>研究选题来自真实软件生态和攻防评测需求，强调可验证、可复现、可落地的安全能力。</p>
-                        </div>
-                        <div class="advantage-item">
-                            <h3>Student Training / 科研训练</h3>
-                            <p>围绕S&amp;P、USENIX Security、NDSS、ICSE、ASE、ISSTA等顶级会议开展系统化科研训练。</p>
-                        </div>
-                        <div class="advantage-item">
-                            <h3>Systems and Impact / 系统与影响</h3>
-                            <p>团队长期建设漏洞发现、利用生成与安全评测系统，支持学生做出有影响力的工具和成果。</p>
-                        </div>
+                <section class="home-section pm-section" id="research-interests">
+                    <div class="pm-section-header">
+                        <span class="pm-section-kicker">Research</span>
+                        <h2>Research</h2>
+                        <p class="section-lead">My work connects theory, systems, and real offensive/defensive needs, with an emphasis on usable automation, rigorous evaluation, and vulnerabilities that matter in practice.</p>
                     </div>
-                    <div class="student-grid">
-                        <div class="student-panel">
-                            <h3>Who Fits Well / 适合的同学</h3>
-                            <p>Students with interests in program analysis, compiler/runtime systems, binary analysis, fuzzing, LLM-based security, or hands-on vulnerability research are especially welcome. 欢迎喜欢动手做系统、读论文、复现漏洞、分析真实软件的同学。</p>
-                        </div>
-                        <div class="student-panel">
-                            <h3>How to Contact / 联系方式</h3>
-                            <p>Please email a CV, transcript, representative projects, and a short description of research interests to liyeting (at) iie (dot) ac (dot) cn. 有意向的同学可邮件联系，并简要说明研究兴趣、项目经历和希望加入的方向。</p>
-                        </div>
+                    <div class="pm-focus-grid">
+                        <article class="pm-focus-card">
+                            <div class="pm-focus-label">01 / Discovery</div>
+                            <h3>Vulnerability Discovery</h3>
+                            <p>Finding real vulnerabilities in web applications, binaries, firmware, and open-source ecosystems through AI-assisted reasoning, analysis, and testing.</p>
+                        </article>
+                        <article class="pm-focus-card">
+                            <div class="pm-focus-label">02 / Exploitation</div>
+                            <h3>Automated Exploit Generation</h3>
+                            <p>Connecting vulnerability detection, exploit construction, constraint solving, and validation into practical end-to-end security workflows.</p>
+                        </article>
+                        <article class="pm-focus-card">
+                            <div class="pm-focus-label">03 / Analysis</div>
+                            <h3>Program Analysis &amp; Fuzzing</h3>
+                            <p>Designing static and dynamic analysis techniques for complex software stacks, protocol implementations, and security-critical system components.</p>
+                        </article>
+                        <article class="pm-focus-card">
+                            <div class="pm-focus-label">04 / Systems</div>
+                            <h3>Firmware, Systems, and LLM Security</h3>
+                            <p>Studying low-level systems and exploring how large language models can support code understanding, security testing, and inconsistency discovery.</p>
+                        </article>
                     </div>
-                    <p class="recruit-note">The group values curiosity, engineering taste, careful experimentation, and the ability to turn security ideas into working systems.</p>
                 </section>
-                <section class="home-section publications-section" id="selected-publications">
-                <div class="publication-section-top">
-                    <div>
-                        <h2>Publications / 发表论文</h2>
-                        <p class="section-lead">Peer-reviewed publications in software and system security, vulnerability discovery, fuzzing, program analysis, ReDoS defense, and software engineering. 以下展示近年的代表性成果。</p>
+
+                <section class="home-section pm-section publications-section" id="selected-publications">
+                    <div class="publication-section-top">
+                        <div>
+                            <span class="pm-section-kicker">Publications</span>
+                            <h2>Selected publications</h2>
+                            <p class="section-lead">Representative papers selected from recent years. The complete publication list remains available on a dedicated page.</p>
+                        </div>
+                        <div class="publication-actions">
+                            <a href="publication.html" class="primary">Full List</a>
+                            <a href="https://scholar.google.com/citations?user=ESEQOMMAAAAJ">Google Scholar</a>
+                            <a href="https://dblp.uni-trier.de/pid/185/7953.html">DBLP</a>
+                        </div>
                     </div>
-                    <div class="publication-actions">
-                        <a href="publication.html" class="primary">View Full Publications</a>
-                        <a href="https://scholar.google.com/citations?user=ESEQOMMAAAAJ">Google Scholar</a>
-                        <a href="https://dblp.uni-trier.de/pid/185/7953.html">DBLP</a>
+                    <div class="publication-stats">
+                        <div class="publication-stat"><strong>43</strong><span>Peer-reviewed papers listed in reverse chronological order</span></div>
+                        <div class="publication-stat"><strong>21</strong><span>First-author or corresponding-author publications</span></div>
+                        <div class="publication-stat"><strong>300+</strong><span>Reported CVEs and vulnerability findings</span></div>
+                        <div class="publication-stat"><strong>2</strong><span>Recent distinguished paper recognitions</span></div>
                     </div>
-                </div>
-                <div class="publication-stats">
-                    <div class="publication-stat"><strong data-publication-total>41</strong><span>peer-reviewed papers listed in reverse chronological order</span></div>
-                    <div class="publication-stat"><strong data-publication-lead>21</strong><span>first-author or corresponding-author publications</span></div>
-                    <div class="publication-stat"><strong>Top venues</strong><span>IEEE S&amp;P, USENIX Security, NDSS, EuroSys, ICSE, ASE, ISSTA</span></div>
-                    <div class="publication-stat"><strong>Awards</strong><span>ICSE 2024 Distinguished Paper; USENIX Security 2025 Honorable Mention</span></div>
-                </div>
-                <p class="publication-kicker">Recent Highlights / 近期亮点</p>
-                <ul class="publication-highlight-list">
-                    <li><strong>Themis: Bridging Documentation and Code to Uncover Access Control Vulnerabilities in GitLab</strong>
-                        <br>Yujie Sun, Huina Chao, <span class="author-me">Yeting Li*</span>, Xinyi Wang, Yiming Liu, Jialun Cao, Qin Mai, Hengyu Yang, Feng Li, Wei Huo, Baoxu Liu:
-                        2026 IEEE International Conference on Acoustics, Speech and Signal Processing (<font>ICASSP 2026, CCF-B</font>)
-                        <br><span>LLM-assisted consistency checking between documentation-derived permissions and code-level enforcement for GitLab access control vulnerabilities.</span>
-                    </li>
-                    <li><strong>LifeFuzz: Lifecycle-Guided Fuzzing for Windows Driver Cross-Handler Vulnerabilities</strong>
-                        <br>Chendong Yu, Yuekang Li, Yang Xiao, Jie Lu, <span class="author-me">Yeting Li</span>, Defang Bo, Wei Huo:
-                        The 21st ACM European Conference on Computer Systems (<font>EuroSys 2026, CCF-A</font>)
-                        <br><span>Lifecycle-guided Windows driver fuzzing for cross-handler vulnerabilities.</span>
-                    </li>
-                    <li><strong>User-Space Dependency-Aware Rehosting for Linux-Based Firmware Binaries</strong>
-                        <br>Chuan Qin, Cen Zhang, Yaowen Zheng, Puzhuo Liu, Jian Zhang, <span class="author-me">Yeting Li</span>, Weidong Zhang, Yang Liu, Limin Sun:
-                        The 33rd Network and Distributed System Security Symposium (<font>NDSS 2026, CCF-A</font>)
-                        <br><span>Dependency-aware firmware rehosting for scalable dynamic analysis.</span>
-                    </li>
-                    <li><strong>Through the Authentication Maze: Detecting Authentication Bypass Vulnerabilities in Firmware Binaries</strong>
-                        <br>Nanyu Zhong, Yuekang Li, Yanyan Zou, Jiaxu Zhao, Jinwei Dong, Yang Xiao, Bingwei Peng, <span class="author-me">Yeting Li</span>, Wei Wang, Wei Huo:
-                        The 33rd Network and Distributed System Security Symposium (<font>NDSS 2026, CCF-A</font>)
-                        <br><span>Dynamic firmware analysis for authentication bypass vulnerabilities.</span>
-                    </li>
-                    <li><strong>VULCANBOOST: Boosting ReDoS Fixes through Symbolic Representation and Feature Normalization</strong>
-                        <br><span class="author-me">Yeting Li</span>, Yecheng Sun, Zhiwu Xu, Haiming Chen, Xinyi Wang, Hengyu Yang, Huina Chao, Cen Zhang, Yang Xiao, Yanyan Zou, Feng Li, Wei Huo:
-                        The 34th USENIX Security Symposium (<font>USENIX Security 2025, CCF-A</font>) <span class="award-inline"><span class="award-badge">Award</span><span class="award-text">Distinguished Paper Honorable Mention, 6% of accepted papers</span></span>
-                        <br><span>Highlighted work on ReDoS repair through symbolic representation and feature normalization.</span>
-                    </li>
-                    <li><strong>ZIPPER: Static Taint Analysis for PHP Applications with Precision and Efficiency</strong>
-                        <br>Xinyi Wang, <span class="author-me">Yeting Li*</span>, Jie Lu, Shizhe Cui, Chenghang Shi, Qin Mai, Yunpei Zhang, Yang Xiao, Feng Li, Wei Huo:
-                        The 34th USENIX Security Symposium (<font>USENIX Security 2025, CCF-A</font>)
-                        <br><span>Precise and efficient static taint analysis for PHP web applications.</span>
-                    </li>
-                    <li><strong>From Constraints to Cracks: Constraint Semantic Inconsistencies as Vulnerability Beacons for Embedded Systems</strong>
-                        <br>Jiaxu Zhao, Yuekang Li, Yanyan Zou, Yang Xiao, Naijia Jiang, <span class="author-me">Yeting Li</span>, Nanyu Zhong, Bingwei Peng, Kunpeng Jian, Wei Huo:
-                        The 34th USENIX Security Symposium (<font>USENIX Security 2025, CCF-A</font>)
-                        <br><span>Using constraint semantic inconsistencies as vulnerability signals in embedded systems.</span>
-                    </li>
-                    <li><strong>Semantic-Enhanced Static Vulnerability Detection in Baseband Firmware</strong>
-                        <br>Yiming Liu, Cen Zhang, Feng Li, <span class="author-me">Yeting Li</span>, Jianhua Zhou, Jian Wang, Lanlan Zhan, Yang Liu, Wei Huo:
-                        The 46th International Conference on Software Engineering (<font>ICSE 2024, CCF-A</font>) <span class="award-inline"><span class="award-badge">Award</span><span class="award-text">ACM SIGSOFT Distinguished Paper Award</span></span>
-                        <br><span>Semantic-enhanced static vulnerability detection for baseband firmware.</span>
-                    </li>
-                </ul>
-                </section>
-                <section class="home-section" id="awards-honors">
-                <h2>Awards &amp; Honors / 荣誉奖励</h2>
-                <ul class="compact-list award-grid">
-                    <li>ICSE 2024 ACM SIGSOFT Distinguished Paper Award.</li>
-                    <li>USENIX Security 2025 Distinguished Paper Honorable Mention.</li>
-                    <li>National Scholarship, Ministry of Education of the People's Republic of China, 2015.</li>
-                    <li>National Scholarship, Ministry of Education of the People's Republic of China, 2018.</li>
-                    <li>CAS Presidential Scholarship (Excellence Award), Chinese Academy of Science (CAS), 2022.</li>
-                    <li>CAS Special Research Assistant (SRA) Program, Chinese Academy of Science (CAS), 2022.</li>
-                    <li>Excellence Award (7/1393), Third Big Data Competition, Baidu, Inc., 2017.</li>
-                </ul>
-                </section>
-                <section class="home-section" id="professional-services">
-                <h2>Professional Services / 学术服务</h2>
-                <p class="section-lead">I actively serve the software security and software engineering communities as a reviewer and committee member for leading international conferences and journals, including:</p>
-                <div class="service-groups">
-                    <div class="service-panel">
-                        <h3>Conferences &amp; Workshops</h3>
-                        <ul class="service-list">
-                            <li>USENIX Security Symposium (USENIX Security) 2024, CCF-A top-tier security conference.</li>
-                            <li>Theoretical Aspects of Software Engineering (TASE) 2024/2026, CCF-C conference.</li>
-                            <li>Workshop on the use of Large Language Models for Cybersecurity (LLM4Sec) @ IEEE ICDM 2025.</li>
+                    <p class="publication-kicker">Representative papers by year / &#25353;&#24180;&#20221;&#23637;&#31034;</p>
+                    <div class="pm-publication-year">
+                        <h3>2026</h3>
+                        <ul class="pm-publication-year-list">
+                            <li>
+                                <div class="pm-paper-title">iDetector: Unraveling and Automating the Detection of Modern Java Web Injection Vulnerabilities</div>
+                                <div class="pm-paper-authors">Xingchen Chen, <span class="author-me">Yeting Li</span>, Ze Jin, Yaokang Tan, Xianglong Li, Baizhu Wang, Mengjun Zhang, Qixu Liu</div>
+                                <div class="pm-paper-meta">ACM Transactions on Software Engineering and Methodology (TOSEM 2026, CCF-A)</div>
+                                <div class="pm-paper-note">Automating the detection of modern Java web injection vulnerabilities.</div>
+                            </li>
+                            <li>
+                                <div class="pm-paper-title">QLAuto: A Static Application Security Testing Approach Based on Intelligent Extraction of Vulnerability Patterns</div>
+                                <div class="pm-paper-authors">Yuhang Zhang, He Su, Feng Li, Yifan Hu, Wenbo Hu, <span class="author-me">Yeting Li</span>, Aihua Piao, Wei Huo</div>
+                                <div class="pm-paper-meta">&#20449;&#24687;&#23433;&#20840;&#23398;&#25253;&#65288;&#20013;&#25991;&#65292;CCF T2&#65289;</div>
+                                <div class="pm-paper-note">&#24352;&#23431;&#33322;, &#33487;&#36203;, &#26446;&#20016;, &#32993;&#19968;&#20961;, &#32993;&#25991;&#27850;, &#26446;&#39029;&#38662;, &#26420;&#29233;&#33457;, &#38669;&#29614;. QLAuto&#65306;&#22522;&#20110;&#28431;&#27934;&#27169;&#24335;&#26234;&#33021;&#25552;&#28860;&#30340;&#38745;&#24577;&#24212;&#29992;&#23433;&#20840;&#27979;&#35797;&#26041;&#27861;[J]. &#20449;&#24687;&#23433;&#20840;&#23398;&#25253;.</div>
+                                <div class="pm-paper-note">Static application security testing driven by intelligent extraction of vulnerability patterns.</div>
+                            </li>
+                            <li>
+                                <div class="pm-paper-title">Themis: Bridging Documentation and Code to Uncover Access Control Vulnerabilities in GitLab</div>
+                                <div class="pm-paper-authors">Yujie Sun, Huina Chao, <span class="author-me">Yeting Li*</span>, Xinyi Wang, Yiming Liu, Jialun Cao, Qin Mai, Hengyu Yang, Feng Li, Wei Huo, Baoxu Liu</div>
+                                <div class="pm-paper-meta">2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2026, CCF-B)</div>
+                                <div class="pm-paper-note">LLM-assisted consistency checking between documentation-derived permissions and code-level enforcement for GitLab access control vulnerabilities.</div>
+                            </li>
                         </ul>
                     </div>
-                    <div class="service-panel">
-                        <h3>Journals</h3>
-                        <ul class="service-list">
-                            <li>IEEE Transactions on Dependable and Secure Computing (TDSC), CCF-A journal.</li>
-                            <li>IEEE Transactions on Mobile Computing (TMC), CCF-A journal.</li>
-                            <li>ACM Transactions on Software Engineering and Methodology (TOSEM), CCF-A journal.</li>
-                            <li>Computers &amp; Security, CCF-B journal.</li>
-                            <li>Science of Computer Programming (SCP), CCF-B journal.</li>
-                            <li>Journal of Computer Science and Technology (JCST), CCF-B journal.</li>
-                            <li>《计算机研究与发展》, CCF-A recommended Chinese journal and T1 high-quality journal in computing.</li>
+                    <div class="pm-publication-year">
+                        <h3>2025</h3>
+                        <ul class="pm-publication-year-list">
+                            <li>
+                                <div class="pm-paper-title">VULCANBOOST: Boosting ReDoS Fixes through Symbolic Representation and Feature Normalization</div>
+                                <div class="pm-paper-authors"><span class="author-me">Yeting Li</span>, Yecheng Sun, Zhiwu Xu, Haiming Chen, Xinyi Wang, Hengyu Yang, Huina Chao, Cen Zhang, Yang Xiao, Yanyan Zou, Feng Li, Wei Huo</div>
+                                <div class="pm-paper-meta">The 34th USENIX Security Symposium (USENIX Security 2025, CCF-A) &middot; Distinguished Paper Honorable Mention</div>
+                                <div class="pm-paper-note">Highlighted work on ReDoS repair through symbolic representation and feature normalization.</div>
+                            </li>
                         </ul>
                     </div>
-                </div>
+                    <div class="pm-publication-year">
+                        <h3>2024</h3>
+                        <ul class="pm-publication-year-list">
+                            <li>
+                                <div class="pm-paper-title">Semantic-Enhanced Static Vulnerability Detection in Baseband Firmware</div>
+                                <div class="pm-paper-authors">Yiming Liu, Cen Zhang, Feng Li, <span class="author-me">Yeting Li</span>, Jianhua Zhou, Jian Wang, Lanlan Zhan, Yang Liu, Wei Huo</div>
+                                <div class="pm-paper-meta">The 46th International Conference on Software Engineering (ICSE 2024, CCF-A) &middot; ACM SIGSOFT Distinguished Paper Award</div>
+                                <div class="pm-paper-note">Semantic-enhanced static vulnerability detection for baseband firmware.</div>
+                            </li>
+                        </ul>
+                    </div>
                 </section>
-                <p style="text-align: center"> <a href="https://clustrmaps.com/site/1byq2"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=3b1cfNi9_oAUNSe_b-HSITTmf5ldEDof933C7ocQG5Y&cl=ffffff" /></a></p>
+
+                <section class="home-section pm-section recruiting-section" id="prospective-students">
+                        <div class="pm-section-header">
+                            <span class="pm-section-kicker">Openings</span>
+                            <h2>Openings</h2>
+                            <p class="section-lead">We welcome master's students, PhD students, postdoctoral researchers, and research interns interested in software and system security.</p>
+                        </div>
+                        <article class="pm-recruit-card">
+                            <p>Typical interests include program analysis, fuzzing, binary analysis, firmware security, compiler/runtime systems, and LLM-based security.</p>
+                            <ul class="pm-list">
+                                <li>Curiosity, rigor, and strong engineering taste are especially valued.</li>
+                                <li>Projects are grounded in real security problems with both academic and practical impact.</li>
+                            </ul>
+                            <p class="pm-inline-note">Please email your CV, transcript, representative projects, and a short note about your research interests to <strong>liyeting (at) iie (dot) ac (dot) cn</strong>.</p>
+                        </article>
+                </section>
+
+                <section class="home-section pm-section" id="professional-services">
+                        <div class="pm-section-header">
+                            <span class="pm-section-kicker">Service</span>
+                            <h2>Professional services</h2>
+                            <p class="section-lead">I contribute to the software security and software engineering communities as a reviewer, program committee member, and journal referee.</p>
+                        </div>
+                        <div class="pm-service-grid">
+                            <article class="pm-service-card">
+                                <h3>Recent conferences</h3>
+                                <ul class="service-list">
+                                    <li>USENIX Security Symposium (USENIX Security) 2024</li>
+                                    <li>Theoretical Aspects of Software Engineering (TASE) 2024 / 2026</li>
+                                    <li>LLM4Sec Workshop @ IEEE ICDM 2025</li>
+                                </ul>
+                            </article>
+                            <article class="pm-service-card">
+                                <h3>Selected journals</h3>
+                                <ul class="service-list">
+                                    <li>IEEE Transactions on Dependable and Secure Computing (TDSC)</li>
+                                    <li>IEEE Transactions on Mobile Computing (TMC)</li>
+                                    <li>ACM Transactions on Software Engineering and Methodology (TOSEM)</li>
+                                    <li>Computers &amp; Security</li>
+                                    <li>Science of Computer Programming (SCP)</li>
+                                    <li>Journal of Computer Science and Technology (JCST)</li>
+                                    <li>&#12298;&#35745;&#31639;&#26426;&#23398;&#25253;&#12299;</li>
+                                    <li>&#12298;&#35745;&#31639;&#26426;&#30740;&#31350;&#19982;&#21457;&#23637;&#12299;</li>
+                                </ul>
+                            </article>
+                        </div>
+                </section>
+
+                <section class="home-section pm-section" id="awards-honors">
+                    <div class="pm-section-header">
+                        <span class="pm-section-kicker">Recognition</span>
+                        <h2>Awards and honors</h2>
+                        <p class="section-lead">Selected recognitions across research, scholarships, and competitive systems work.</p>
+                    </div>
+                    <div class="pm-award-grid">
+                        <article class="pm-award-card">
+                            <h3>ICSE 2024</h3>
+                            <p>ACM SIGSOFT Distinguished Paper Award</p>
+                        </article>
+                        <article class="pm-award-card">
+                            <h3>USENIX Security 2025</h3>
+                            <p>Distinguished Paper Honorable Mention</p>
+                        </article>
+                        <article class="pm-award-card">
+                            <h3>Chinese Academy of Sciences</h3>
+                            <p>Presidential Scholarship (Excellence Award), 2022 &middot; Special Research Assistant Program, 2022</p>
+                        </article>
+                        <article class="pm-award-card">
+                            <h3>National &amp; Competition Awards</h3>
+                            <p>National Scholarship, 2015 and 2018 &middot; Baidu Third Big Data Competition Excellence Award (7/1393), 2017</p>
+                        </article>
+                    </div>
+                </section>
+
+
+
+                <div class="pm-footer-note">
+                    <a href="https://clustrmaps.com/site/1byq2" title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=3b1cfNi9_oAUNSe_b-HSITTmf5ldEDof933C7ocQG5Y&amp;cl=ffffff" alt="Visit tracker"></a>
+                </div>
 
             </div>
             <footer class="page-edit"><!---->
-                <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">04/27/2026</span>
+                <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">05/24/2026</span>
                 </div>
             </footer> <!----> </main>
     </div>
@@ -2575,70 +3359,5 @@ html {
 </div>
 
 
-<script>
-(function () {
-  var totalStatTargets = Array.prototype.slice.call(document.querySelectorAll('[data-publication-total]'));
-  var leadStatTargets = Array.prototype.slice.call(document.querySelectorAll('[data-publication-lead]'));
-  if (!totalStatTargets.length && !leadStatTargets.length) {
-    return;
-  }
-
-  var fallbackStats = {
-    total: 41,
-    lead: 21
-  };
-
-  function isLeadOrCorresponding(item) {
-    var html = item.innerHTML || '';
-    return html.indexOf('Yeting Li*') !== -1 || /<br>\s*(?:<span class="author-me">)?Yeting Li(?:\*<\/span>|<\/span>|\*)?,/i.test(html);
-  }
-
-  function setStats(stats) {
-    totalStatTargets.forEach(function (target) {
-      target.textContent = String(stats.total);
-    });
-    leadStatTargets.forEach(function (target) {
-      target.textContent = String(stats.lead);
-    });
-  }
-
-  function extractStats(doc) {
-    var content = doc.querySelector('.publication-main');
-    if (!content) {
-      return null;
-    }
-    var items = Array.prototype.slice.call(content.querySelectorAll('ul > li'));
-    if (!items.length) {
-      return null;
-    }
-    return {
-      total: items.length,
-      lead: items.filter(isLeadOrCorresponding).length
-    };
-  }
-
-  setStats(fallbackStats);
-
-  if (!window.fetch || !window.DOMParser) {
-    return;
-  }
-
-  fetch('publication.html', { credentials: 'same-origin' })
-    .then(function (response) {
-      if (!response.ok) {
-        throw new Error('Failed to load publication.html');
-      }
-      return response.text();
-    })
-    .then(function (html) {
-      var doc = new DOMParser().parseFromString(html, 'text/html');
-      var stats = extractStats(doc);
-      if (stats) {
-        setStats(stats);
-      }
-    })
-    .catch(function () {});
-})();
-</script>
 </body>
 </html>
