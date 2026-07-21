@@ -199,10 +199,13 @@ run('index.html preserves a visible and keyboard-accessible selected-paper link 
 run('publication.html constrains the responsive publication grid tracks', () => {
   const html = fs.readFileSync(path.join(__dirname, '..', 'publication.html'), 'utf8');
   const redesignCss = extractStyleBlock(html, 'pm-publications-redesign');
-  const mediaStart = redesignCss.indexOf('@media (max-width: 980px)');
+  const mediaMarker = '@media (max-width: 980px)';
+  const mediaStart = redesignCss.indexOf(mediaMarker);
   assert.notEqual(mediaStart, -1, 'missing max-width 980px publication breakpoint');
 
-  const responsiveCss = redesignCss.slice(mediaStart);
+  const nextMediaStart = redesignCss.indexOf('@media', mediaStart + mediaMarker.length);
+  assert.notEqual(nextMediaStart, -1, 'missing media-query boundary after max-width 980px breakpoint');
+  const responsiveCss = redesignCss.slice(mediaStart, nextMediaStart);
   const layoutRule = responsiveCss.match(/\.publication-layout\s*\{([^}]*)\}/);
   assert.ok(layoutRule, 'missing responsive publication-layout rule');
   assert.match(layoutRule[1], /grid-template-columns:\s*minmax\(0,\s*1fr\);/);
