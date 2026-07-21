@@ -63,6 +63,22 @@ function extractSelectedJournals(html) {
   return journalList[1];
 }
 
+function extractSection(html, sectionMarker) {
+  const sectionStart = html.indexOf(sectionMarker);
+  assert.notEqual(sectionStart, -1, `missing section marker: ${sectionMarker}`);
+
+  const sectionEnd = html.indexOf('</section>', sectionStart);
+  assert.notEqual(sectionEnd, -1, `missing section end: ${sectionMarker}`);
+  return html.slice(sectionStart, sectionEnd + '</section>'.length);
+}
+
+function extractBiographyCards(html) {
+  const biography = extractSection(html, '<section class="home-section pm-section" id="short-bio">');
+  const cards = [...biography.matchAll(/<article class="pm-story-card">([\s\S]*?)<\/article>/g)].map((match) => match[1]);
+  assert.equal(cards.length, 2, 'expected English and Chinese biography cards');
+  return cards;
+}
+
 run('extractPublicationStatsFromHtml counts publication total and lead/corresponding papers from publication.html', () => {
   const html = fs.readFileSync(path.join(__dirname, '..', 'publication.html'), 'utf8');
   const stats = extractPublicationStatsFromHtml(html);
@@ -97,19 +113,40 @@ run('publication.html keeps the complete CCS record as the first 2026 publicatio
 run('index.html keeps the complete CCS record as the first selected 2026 publication', () => {
   const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
   const first2026Item = extractFirst2026Item(html, '<h3>2026</h3>');
+  const impactBand = extractSection(html, '<section class="pm-impact-band" aria-label="Academic overview">');
+  const [englishBiography, chineseBiography] = extractBiographyCards(html);
+  const selectedPublications = extractSection(html, '<section class="home-section pm-section publications-section" id="selected-publications">');
 
   assert.equal(countExactOccurrences(html, CCS_RECORD.titleLink), 1);
   assertCcsRecord(first2026Item);
-  assert.ok(html.includes('<strong>44</strong><span>Peer-reviewed papers</span>'));
-  assert.ok(html.includes('<strong>22</strong><span>First/corresponding-author papers</span>'));
+  assert.ok(impactBand.includes('<strong>44</strong><span>Peer-reviewed papers</span>'));
+  assert.ok(impactBand.includes('<strong>22</strong><span>First/corresponding-author papers</span>'));
+  assert.ok(impactBand.includes('<strong>Top-tier</strong><span>S&amp;P, USENIX Security, ACM CCS, NDSS, EuroSys, ICSE, ASE, ISSTA</span>'));
+  assert.ok(!impactBand.includes('<strong>43</strong><span>Peer-reviewed papers</span>'));
+  assert.ok(!impactBand.includes('<strong>21</strong><span>First/corresponding-author papers</span>'));
+
+  assert.ok(englishBiography.includes('<strong class="pm-inline-stat">44</strong>'));
+  assert.ok(englishBiography.includes('<strong class="pm-inline-stat">22</strong>'));
+  assert.ok(englishBiography.includes('IEEE S&amp;P, USENIX Security, ACM CCS, NDSS, EuroSys, ICSE, ASE, and ISSTA'));
+  assert.ok(!englishBiography.includes('<strong class="pm-inline-stat">43</strong>'));
+  assert.ok(!englishBiography.includes('<strong class="pm-inline-stat">21</strong>'));
+
+  assert.ok(chineseBiography.includes('<strong class="pm-inline-stat">44</strong>'));
+  assert.ok(chineseBiography.includes('<strong class="pm-inline-stat">22</strong>'));
+  assert.ok(chineseBiography.includes('IEEE S&amp;P&#12289;USENIX Security&#12289;ACM CCS&#12289;NDSS&#12289;EuroSys&#12289;ICSE&#12289;ASE&#12289;ISSTA'));
+  assert.ok(!chineseBiography.includes('<strong class="pm-inline-stat">43</strong>'));
+  assert.ok(!chineseBiography.includes('<strong class="pm-inline-stat">21</strong>'));
+
+  assert.ok(selectedPublications.includes('<strong>44</strong><span>Peer-reviewed papers listed in reverse chronological order</span>'));
+  assert.ok(selectedPublications.includes('<strong>22</strong><span>First-author or corresponding-author publications</span>'));
+  assert.ok(!selectedPublications.includes('<strong>43</strong><span>Peer-reviewed papers listed in reverse chronological order</span>'));
+  assert.ok(!selectedPublications.includes('<strong>21</strong><span>First-author or corresponding-author publications</span>'));
+
   assert.match(
     extractSelectedJournals(html),
     /<li>ACM Transactions on Software Engineering and Methodology \(TOSEM\)<\/li>\s*<li>The Journal of Systems &amp; Software \(JSS\)<\/li>/
   );
-  assert.ok(html.includes('S&amp;P, USENIX Security, ACM CCS, NDSS, EuroSys, ICSE, ASE, ISSTA'));
   assert.ok(html.includes('<span class="time">07/21/2026</span>'));
-  assert.ok(!html.includes('<strong>43</strong><span>Peer-reviewed papers</span>'));
-  assert.ok(!html.includes('<strong>21</strong><span>First/corresponding-author papers</span>'));
   assert.ok(!html.includes('05/24/2026'));
 });
 
