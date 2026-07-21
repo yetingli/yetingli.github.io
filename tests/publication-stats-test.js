@@ -79,6 +79,16 @@ function extractBiographyCards(html) {
   return cards;
 }
 
+function extractStyleBlock(html, id) {
+  const styleStartMarker = `<style id="${id}">`;
+  const styleStart = html.indexOf(styleStartMarker);
+  assert.notEqual(styleStart, -1, `missing style block: ${id}`);
+
+  const styleEnd = html.indexOf('</style>', styleStart);
+  assert.notEqual(styleEnd, -1, `missing style block end: ${id}`);
+  return html.slice(styleStart + styleStartMarker.length, styleEnd);
+}
+
 function extractInlineLeadClassifierBody(html) {
   const match = html.match(/  function isLeadOrCorresponding\(item\) \{([\s\S]*?)\r?\n  \}\r?\n\r?\n  function updateSummaryStats/);
   assert.ok(match, 'missing inline isLeadOrCorresponding fallback');
@@ -184,4 +194,15 @@ run('index.html preserves a visible and keyboard-accessible selected-paper link 
 
   assert.match(html, /\.pm-paper-title a\s*\{[\s\S]*?text-decoration:\s*underline;/);
   assert.match(html, /\.pm-paper-title a:focus-visible\s*\{/);
+});
+
+run('publication.html constrains the responsive publication grid track', () => {
+  const html = fs.readFileSync(path.join(__dirname, '..', 'publication.html'), 'utf8');
+  const redesignCss = extractStyleBlock(html, 'pm-publications-redesign');
+  const mediaStart = redesignCss.indexOf('@media (max-width: 980px)');
+  assert.notEqual(mediaStart, -1, 'missing max-width 980px publication breakpoint');
+
+  const layoutRule = redesignCss.slice(mediaStart).match(/\.publication-layout\s*\{([^}]*)\}/);
+  assert.ok(layoutRule, 'missing responsive publication-layout rule');
+  assert.match(layoutRule[1], /grid-template-columns:\s*minmax\(0,\s*1fr\);/);
 });
