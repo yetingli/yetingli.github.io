@@ -8,7 +8,7 @@
   var publicationMainPattern = /<div class="publication-main">([\s\S]*?)<\/div>\s*<aside/i;
   var listItemPattern = /<li\b[\s\S]*?<\/li>/gi;
   var leadAtLineStartPattern = /<br>\s*(?:<span class="author-me">)?Yeting Li(?:\*<\/span>|<\/span>|\*)?,/i;
-  var correspondingPattern = /Yeting Li\*/i;
+  var correspondingPattern = /Yeting Li(?:&dagger;|&#8224;)?\*/i;
 
   function isLeadOrCorrespondingItemHtml(itemHtml) {
     if (!itemHtml) {
