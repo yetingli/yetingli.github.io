@@ -79,6 +79,12 @@ function extractBiographyCards(html) {
   return cards;
 }
 
+function extractInlineLeadClassifierBody(html) {
+  const match = html.match(/  function isLeadOrCorresponding\(item\) \{([\s\S]*?)\r?\n  \}\r?\n\r?\n  function updateSummaryStats/);
+  assert.ok(match, 'missing inline isLeadOrCorresponding fallback');
+  return match[1];
+}
+
 run('extractPublicationStatsFromHtml counts publication total and lead/corresponding papers from publication.html', () => {
   const html = fs.readFileSync(path.join(__dirname, '..', 'publication.html'), 'utf8');
   const stats = extractPublicationStatsFromHtml(html);
@@ -97,6 +103,29 @@ run('extractPublicationStatsFromHtml returns null when the publication list is m
 run('isLeadOrCorrespondingItemHtml recognizes an equal-contribution corresponding author', () => {
   const itemHtml = '<li><br>Yecheng Sun&dagger;, <span class="author-me">Yeting Li&dagger;*</span>, Huina Chao:</li>';
   assert.equal(isLeadOrCorrespondingItemHtml(itemHtml), true);
+});
+
+run('isLeadOrCorrespondingItemHtml recognizes a DOM-normalized joint-first author marker', () => {
+  const itemHtml = '<li><span class="author-me">Yeting Li\u2020*</span></li>';
+  assert.equal(isLeadOrCorrespondingItemHtml(itemHtml), true);
+});
+
+run('publication.html inline fallback recognizes a DOM-normalized joint-first author marker', () => {
+  const html = fs.readFileSync(path.join(__dirname, '..', 'publication.html'), 'utf8');
+  const functionBody = extractInlineLeadClassifierBody(html);
+  const createClassifier = new Function(
+    'publicationStats',
+    'getText',
+    'getAuthorLine',
+    'return function (item) {' + functionBody + '\n};'
+  );
+  const isLeadOrCorresponding = createClassifier(
+    null,
+    () => 'Yecheng Sun, Yeting Li\u2020*',
+    () => 'Yecheng Sun, Yeting Li'
+  );
+
+  assert.equal(isLeadOrCorresponding({ innerHTML: '' }), true);
 });
 
 run('publication.html keeps the complete CCS record as the first 2026 publication', () => {

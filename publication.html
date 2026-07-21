@@ -2757,7 +2757,7 @@ a.sidebar-link.active {
       return publicationStats.isLeadOrCorrespondingItemHtml(item.innerHTML || '');
     }
     var text = getText(item);
-    return text.indexOf('Yeting Li*') !== -1 || getAuthorLine(item).indexOf('Yeting Li') === 0;
+    return /Yeting Li(?:\u2020)?\*/i.test(text) || getAuthorLine(item).indexOf('Yeting Li') === 0;
   }
 
   function updateSummaryStats() {
