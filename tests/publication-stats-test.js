@@ -19,7 +19,7 @@ function run(name, fn) {
 }
 
 const CCS_RECORD = {
-  titleLink: '<a href="https://ccs2026b.hotcrp.com/paper/619">Repairing ReDoS by Construction: Certified Algebraic Derivation for Semantics-Preserving Regex Transformation</a>',
+  titleText: 'Repairing ReDoS by Construction: Certified Algebraic Derivation for Semantics-Preserving Regex Transformation',
   authorLine: 'Yecheng Sun&dagger;, <span class="author-me">Yeting Li&dagger;*</span>, Huina Chao, Zhiwu Xu, Lixiao Zheng, Qin Mai, Mengcheng Shi, Xinyi Wang, Hengyu Yang, Yang Xiao, Feng Li, Wei Huo',
   venue: 'ACM CCS 2026, CCF-A',
   location: '15-19 November 2026, World Forum, The Hague, The Netherlands',
@@ -142,8 +142,10 @@ run('publication.html keeps the complete CCS record as the first 2026 publicatio
   const html = fs.readFileSync(path.join(__dirname, '..', 'publication.html'), 'utf8');
   const first2026Item = extractFirst2026Item(html, '<p id="year-2026" class="year-heading"><strong>2026</strong></p>');
 
-  assert.equal(countExactOccurrences(html, CCS_RECORD.titleLink), 1);
+  assert.equal(countExactOccurrences(html, CCS_RECORD.titleText), 1);
   assertCcsRecord(first2026Item);
+  assert.ok(!html.includes('https://ccs2026b.hotcrp.com/paper/619'));
+  assert.ok(!/<a\b/i.test(first2026Item), 'expected plain-text CCS title without a hyperlink');
   assert.ok(html.includes('IEEE S&amp;P, USENIX Security, ACM CCS, NDSS, EuroSys, ICSE, ASE, ISSTA'));
   assert.ok(html.includes('<span class="time">07/21/2026</span>'));
   assert.ok(!html.includes('05/24/2026'));
@@ -156,8 +158,10 @@ run('index.html keeps the complete CCS record as the first selected 2026 publica
   const [englishBiography, chineseBiography] = extractBiographyCards(html);
   const selectedPublications = extractSection(html, '<section class="home-section pm-section publications-section" id="selected-publications">');
 
-  assert.equal(countExactOccurrences(html, CCS_RECORD.titleLink), 1);
+  assert.equal(countExactOccurrences(html, CCS_RECORD.titleText), 1);
   assertCcsRecord(first2026Item);
+  assert.ok(!html.includes('https://ccs2026b.hotcrp.com/paper/619'));
+  assert.ok(!/<a\b/i.test(first2026Item), 'expected plain-text CCS title without a hyperlink');
   assert.ok(impactBand.includes('<strong>44</strong><span>Peer-reviewed papers</span>'));
   assert.ok(impactBand.includes('<strong>22</strong><span>First/corresponding-author papers</span>'));
   assert.ok(impactBand.includes('<strong>Top-tier</strong><span>S&amp;P, USENIX Security, ACM CCS, NDSS, EuroSys, ICSE, ASE, ISSTA</span>'));
@@ -183,17 +187,10 @@ run('index.html keeps the complete CCS record as the first selected 2026 publica
 
   assert.match(
     extractSelectedJournals(html),
-    /<li>ACM Transactions on Software Engineering and Methodology \(TOSEM\)<\/li>\s*<li>The Journal of Systems &amp; Software \(JSS\)<\/li>/
+    /<li>IEEE Transactions on Mobile Computing \(TMC\)<\/li>\s*<li>IEEE Transactions on Software Engineering \(TSE\)<\/li>\s*<li>ACM Transactions on Software Engineering and Methodology \(TOSEM\)<\/li>\s*<li>The Journal of Systems &amp; Software \(JSS\)<\/li>/
   );
   assert.ok(html.includes('<span class="time">07/21/2026</span>'));
   assert.ok(!html.includes('05/24/2026'));
-});
-
-run('index.html preserves a visible and keyboard-accessible selected-paper link affordance', () => {
-  const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
-
-  assert.match(html, /\.pm-paper-title a\s*\{[\s\S]*?text-decoration:\s*underline;/);
-  assert.match(html, /\.pm-paper-title a:focus-visible\s*\{/);
 });
 
 run('publication.html constrains the responsive publication grid tracks', () => {
